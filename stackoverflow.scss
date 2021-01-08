@@ -1,0 +1,37 @@
+@import "/home/kip/.cache/wal/colors.scss";
+
+// checkc "INFO" tags in file when applying to colorcheme
+// It's filter adjasment most of time (like hue rotate)
+
+$main-background-color: $color0;
+$background-dark: darken($main-background-color, 5%);
+/* used to separate sections from each other (like borders) */
+$background-light: lighten($main-background-color, 18%);
+
+$light: $color15;
+$grey: lighten($color8, 00%);
+
+$link-color: $color2;
+
+$stress1: $color1; /* current opened tab in repository */
+$stress2: $color9; /* hi last commiter name */
+$stress3: $color12;
+$stress4: $color2;
+
+/* color when you need to emphasize some section (neighter it's button
+ * or heading to something */
+// $section-emph-border: lighten($color1, 5%);
+$section-emph-border: lighten($color11, 0%);
+$section-emph-background: darken($color11, 55%);
+
+$sel-background: darken($color8, 25%);
+// $sel-background: #ff0000;
+
+$button-border-hover: #8d969e;
+
+$debug: #7a5178;
+
+body
+{
+    background: $main-background-color !important;
+}

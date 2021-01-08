@@ -1,0 +1,726 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans';
+@import "/home/kip/.cache/wal/colors.scss";
+
+/* TODO: move to hsl colors and use this site as resource for color calculating: */
+/* .ml-3 это скорее всего двойные кнопки */
+/* https://una.im/css-color-theming/ */
+
+$main-background-color: $color0;
+$background-dark: darken($main-background-color, 5%);
+/* used to separate sections from each other (like borders) */
+$background-light: lighten($main-background-color, 18%);
+
+$light: $color15;
+$grey: $color8;
+
+$link-color: $color2;
+
+$stress1: $color1; /* current opened tab in repository */
+$stress2: $color9; /* hi last commiter name */
+$stress3: $color12;
+
+/* color when you need to emphasize some section (neighter it's button
+ * or heading to something */
+// $section-emph-border: #C0C0DD;
+$section-emph-border: lighten($color1, 5%);
+$section-emph-background: darken($color11, 55%);
+
+// $sel-background: #272a2b;
+$sel-background: darken($color8, 25%);
+
+$button-border-hover: #8d969e;
+
+
+* {
+    -webkit-box-sizing: border-box !important;
+    box-sizing: border-box !important;
+}
+
+.color-bg-canvas-inset
+{
+    background-color: $main-background-color !important;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif !important;
+    line-height: 1.75em !important;
+    /* font-size: 16px !important; */
+    background-color: $main-background-color !important;
+    color: #aaa !important;
+}
+
+html
+{
+    background-color: $background-dark !important;
+}
+
+/* заголовок гитхаба в самом верху */
+.Header
+{
+    background-color: $background-dark !important;
+}
+
+/* поле поиска в самом верху */
+.input-sm
+{
+    background-color: $main-background-color !important;
+}
+
+.simple-container {
+    max-width: 675px !important;
+    margin: 0 auto !important;
+    padding-top: 70px !important;
+    padding-bottom: 20px !important;
+}
+
+.simple-print {
+    fill: white !important;
+    stroke: white !important;
+}
+.simple-print svg {
+    height: 100% !important;
+}
+
+.simple-close {
+    color: white !important;
+    border-color: white !important;
+}
+
+.simple-ext-info {
+    border-top: 1px solid #aaa !important;
+}
+
+a[href] {
+    color: $link-color !important;
+}
+
+a[href]:hover {
+    color: $link-color !important;
+}
+
+img {
+    max-width: 100% !important;
+}
+
+li {
+    line-height: 1.5em !important;
+}
+
+aside,
+[class *= "sidebar"],
+[id *= "sidebar"] {
+    max-width: 90% !important;
+    margin: 0 auto !important;
+    border: 1px solid lightgrey !important;
+    padding: 5px 15px !important;
+}
+
+/* контейнер для заголовков для фолдеров и плашек фолдеров */
+.Box
+{
+    background-color: $main-background-color !important;
+    border: 1px solid $background-light !important;
+}
+
+
+/* строчка которая содержит фолдеры в репозитории */
+.Box-row
+{
+    border-top: 1px solid $background-light !important;
+}
+
+/* ник последнего коммитера */
+a[href].commit-author
+{
+    color: $stress2 !important;
+}
+
+a[href].f6
+{
+    // color: var(--stress3) !important;
+    color: $stress3 !important;
+}
+
+/* плашки фолдеров в репозитории */
+/* сделать голубоватую рамку, само выделение серым, а
+ * ник последнего коммитера грязно коралловым */
+.navigation-focus
+{
+    background-color: $sel-background !important;
+}
+
+/* короткая менюшка с нафигацией по секциям в репозитории: код, пул реквесты */
+/* безопасность, настройки */
+/* bg-gray-light pt-3 hide-full-screen mb-5 */
+.pt-3,
+.js-repo-nav
+{
+    background-color: $main-background-color !important;
+}
+
+/* остальные плашки в менюшке с навигацией по классам репозитории */
+/* js-selected-navigation-item UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item */
+.js-selected-navigation-item
+{
+    border-bottom: 1px solid $background-light !important;
+}
+
+/* продолжение разделителя на всю странницу (навигация по репозиторию) */
+.js-repo-nav,
+.js-sidenav-container-pjax
+{
+    box-shadow: inset 0 -1px 0 $background-light !important;
+}
+
+/* выбранный итем в менюшке с навигацией по репозиторию: код, пул реквесты, */
+/* безопасность, настройки */
+.selected.UnderlineNav-item
+{
+    /* border-top-color: $stress1 !important; */
+    /* border-bottom-color: none !important; */
+    border: none !important;
+    border-top: 2px solid $stress1 !important;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+    border-left: 1px solid $background-light !important;
+    border-right: 1px solid $background-light !important;
+    border-bottom: none !important;
+    background-color: $main-background-color !important;
+}
+
+/* how many days ago commit was made */
+.text-gray-light,
+/* on right side of folders header - "commit" string */
+.text-gray,
+/* name of last commit in folder */
+a.link-gray,
+a.muted-link
+{
+    color: $grey !important;
+}
+
+/* section with languages list in the bottom right */
+.text-gray-dark,
+/* "About" section on right side of page */
+.mb-3,
+/* folder name */
+a.link-gray-dark,
+/* "Go to file" button font color */
+a.ml-2,
+/* link color on top of page */
+a.Header-link
+{
+    color: $light !important;
+}
+
+a.ml-2:hover
+{
+    color: $light !important;
+}
+
+/* навигация по репозиторию */
+.UnderlineNav-item,
+.UnderlineNav-item[href]
+{
+    color: $light !important;
+}
+
+/* разделители справа */
+.BorderGrid-cell
+{
+    border: 1px solid $background-light !important;
+}
+
+/* кнопки */
+
+.btn
+{
+    background-color: $main-background-color !important;
+    color: $light !important;
+    /* border: none !important; */
+    border: 1px solid $background-light !important;
+    border-radius: 3px !important;
+    box-shadow: none !important;
+}
+
+.btn-sm
+{
+    border: none !important;
+}
+
+.btn:hover
+{
+    border-color: $button-border-hover !important;
+}
+
+/* "Watch", "Star", "Fork" buttons */
+ul.pagehead-actions li
+{
+    border: 1px solid $background-light !important;
+    border-radius: 3px !important;
+}
+
+ul.pagehead-actions li:hover
+{
+    border-color: $button-border-hover !important;
+}
+
+/* watch, stars, forks qty buttons */
+a.social-count
+{
+    background-color: $main-background-color !important;
+    box-shadow: none !important;
+    border: none !important;
+    color: #fff !important;
+}
+
+/* laber near to repository name */
+span.Label
+{
+    border: 1px solid $background-light !important;
+    border-radius: 9px !important;
+}
+
+/* всплывающая менюшка при нажатии на кнопки в репо */
+/* заголовок */
+.SelectMenu-header,
+/* список выпадающих элементов */
+.SelectMenu-item
+{
+    color: $light !important;
+    background-color: $main-background-color !important;
+}
+
+/* заголовок */
+.SelectMenu-title
+{
+    line-height: 0px !important;
+    padding: none !important;
+    border: none !important;
+}
+
+/* список выпадающих элементов */
+.SelectMenu-item:hover
+{
+    background-color: $background-dark !important;
+}
+
+.dropdown-menu
+{
+    background-color: $main-background-color !important;
+    /* background-color: var(--color-bg-overlay) !important; */
+}
+
+/* вкладка Code в репозитории */
+li.Box-row:hover
+{
+    background-color: $background-dark !important;
+}
+
+.dropdown-item:hover
+{
+    background-color: $background-dark !important;
+}
+input.subnav-search-input
+{
+    background-color: $background-dark !important;
+}
+/* content {{{ */
+/* заголовок для фолдеров в репозитории */
+.Box-header--blue
+{
+    border: 1px solid $section-emph-border !important;
+    box-shadow: inset 0 -1px 0 $section-emph-border !important;
+    background-color: $section-emph-background !important;
+}
+/* }}} */
+/* readme {{{ */
+.md .Box-header
+{
+    border: 1px solid $section-emph-border !important;
+    box-shadow: inset 0 -1px 0 $section-emph-border !important;
+    background-color: $section-emph-background !important;
+}
+/* }}} */
+/* владка `issues` {{{ */
+
+/* Кнопки `labels` `Milestones` */
+a.subnav-item:hover
+{
+    background-color: $sel-background !important;
+}
+
+/* конец вкладки `issues` }}} */
+/* "insights" tab {{{ */
+/* not enabled tabs on left side (Pulse, COntributors) */
+nav.menu span.menu-item
+{
+    background-color: $main-background-color !important;
+}
+/* enabled left tabs */
+nav.menu a.menu-item
+{
+    color: $light !important;
+    background-color: $main-background-color !important;
+}
+nav.menu a.menu-item:hover
+{
+    background-color: $sel-background !important;
+}
+/* selected left tab */
+nav.menu a.selected.menu-item
+{
+    background-color: $sel-background !important;
+}
+
+nav.tabnav-tabs
+{
+    /* horizontal tabs */
+    a.tabnav-tab
+    {
+        color: $grey !important;
+        &:not(:first-child)
+        {
+            border-bottom: 1px solid $background-light !important;
+        }
+        &:first-child
+        {
+            border-top: 1px solid $background-light !important;
+            border-left: 1px solid $background-light !important;
+            border-right: 1px solid $background-light !important;
+            border-top-right-radius: 6px !important;
+            border-top-left-radius: 6px !important;
+        }
+    }
+
+    /* selected horizontal tab */
+    a.selected
+    {
+        color: $light !important;
+        background-color: $sel-background !important;
+    }
+}
+/* header in "Dependents" (item in horizontal list) */
+.Box .border-bottom
+{
+    border: 1px solid $section-emph-border !important;
+    border-top-right-radius: 6px !important;
+    border-top-left-radius: 6px !important;
+    box-shadow: inset 0 -1px 0 $section-emph-border !important;
+    background-color: $section-emph-background !important;
+}
+
+/* white "Repository" */
+.Box .border-bottom a.btn-link
+{
+    color: $grey !important;
+}
+
+/* grey "Packages" */
+.Box .border-bottom a.btn-link.selected
+{
+    color: $light !important;
+}
+/* }}} */
+/* "settings" tab {{{ */
+li a.js-selected-navigation-item
+{
+    color: $light !important;
+}
+/* }}} */
+/* просмотр кода {{{ */
+
+/* заголовок для файла */
+.mt-3 .Box-header
+{
+    background-color: $main-background-color !important;
+    border-color: $background-light !important;
+    box-shadow: inset 0 -1px 0 $background-light !important
+}
+
+/* конец просмотра кода }}} */
+/* security tab {{{ */
+/* selected on left side item ("overview", "security policy") */
+a.SideNav-item
+{
+    background-color: $main-background-color !important;
+}
+a.SideNav-item:hover
+{
+    background-color: $sel-background !important;
+}
+/* }}} */
+/* 'pulls' tab {{{ */
+/* "created", "assigned", "mentioned" */
+.subnav-links .selected
+{
+    background-color: $sel-background !important;
+    border-color: $background-light !important;
+}
+/* box header "Open", "Closed", "Visibility" */
+.Box .Box-header
+{
+    border: 1px solid $section-emph-border !important;
+    box-shadow: inset 0 -1px 0 $section-emph-border !important;
+    background-color: $section-emph-background !important;
+}
+/* list of pulls */
+.js-navigation-container
+{
+    /* border-bottom: 1px solid var(--color-border-primary) !important; */
+    border-top: none !important;
+    border-bottom: 1px solid $background-light !important;
+    border-left: 1px solid $background-light !important;
+    border-right: 1px solid $background-light !important;
+    border-radius: 6px !important;
+}
+/* item in list of pulls */
+.Box-row--drag-hide
+{
+    background-color: $main-background-color !important;
+}
+/* }}} */
+/* jump to {{{ */
+li.navigation-focus,
+li.navigation-focus a,
+li.js-navigation-item,
+li.js-navigation-item a
+{
+    border: none !important;
+    background-color: $main-background-color !important;
+}
+li.navigation-focus a:hover,
+li.navigation-focut:hover
+{
+    background-color: $sel-background !important;
+}
+
+/* border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light
+ * ml-1 f6 d-on-nav-focus js-jump-to-badge-jump */
+.d-on-nav-focus
+{
+    background-color: $background-dark !important;
+}
+/* }}} */
+/* main page {{{ */
+/* dashboard */
+.team-left-column
+{
+    background-color: $main-background-color !important;
+    border: none !important;
+    border-right: 1px solid $background-light !important;
+}
+
+.team-left-column .dashboard-sidebar
+{
+    border: none !important;
+}
+/* button "create an organization" on side */
+.dashboard-sidebar a.btn
+{
+    background-color: $section-emph-background !important;
+    color: $grey !important;
+}
+/* }}} */
+/* explore page {{{ */
+/* profile card */
+/* picture and name */
+.col-md-12 .border .d-lg-block,
+/* items in lists below picture and namve */
+.col-md-12 .border .border-top
+{
+    border-top: 1px solid $background-light !important;
+    background-color: $main-background-color
+}
+/* items in lists below picture and namve */
+.col-md-12 .border .border-top
+{
+    border-top: 1px solid $background-light !important;
+    border-bottom: 1px solid $background-light !important;
+}
+/* container for profile card */
+.col-md-12 .box-shadow-medium
+{
+    border: 1px solid $background-light !important;
+    background-color: $background-light !important;
+}
+/* hashtag icon on left side of topics in profile card */
+.col-md-12 .border ul li div.bg-blue-light
+{
+    background-color: $sel-background !important;
+}
+/* background fill */
+div.application-main main .border-bottom
+{
+    background-color: $main-background-color !important;
+}
+/* navigation header */
+div.site-subnav
+{
+    background-color: $background-dark !important;
+    /* border-top: 1px solid $background-light !important; */
+}
+div.site-subnav a
+{
+    color: $light !important;
+}
+/* "Get emails updates" in navigation header */
+div.site-subnav a.btn-mktg
+{
+    background-color: $sel-background !important;
+    border-color: $background-light !important;
+}
+div.site-subnav a.btn-mktg:hover
+{
+    border-color: $grey !important;
+    /* background-color: $section-emph-background !important; */
+}
+
+/* entry in news */
+article.border
+{
+    background-color: $section-emph-background !important;
+}
+/* border around button "Star" */
+article.border .ml-3
+{
+    border: 1px solid $background-light !important;
+    border-radius: 5px !important;
+    background-color: $main-background-color !important;
+}
+article.border .ml-3:hover
+{
+    border-color: $grey !important;
+}
+/* first tab in repository preview "Code" (there are also "Issues,
+ * Pull requests"*/
+nav.tabnav-tabs a:first-child
+{
+    background-color: $main-background-color !important;
+    color: $light !important;
+    border-color: $background-light !important;
+}
+.tabnav-tabs .tabnav-tab
+{
+    background-color: $section-emph-background !important;
+    border: none !important;
+}
+/* code, issues, pull requests, discussions */
+div.tabnav
+{
+    border-color: $background-light !important;
+}
+/* Time updated */
+.border-grey-light.border-bottom,
+.border-bottom
+{
+    border-bottom: 1px solid $background-light !important;
+}
+/* "See more matching repositories" */
+.mb-n3 a.btn
+{
+    background-color: $sel-background !important;
+    border: 1px solid $background-light !important;
+    border-radius: 6px !important;
+}
+.mb-n3 a.btn:hover
+{
+    border-color: $grey !important;
+}
+
+
+.border .bg-white
+{
+    background-color: $main-background-color !important;
+}
+
+/* background behind "See more matching repositories" */
+.overflow-hidden div.mb-n3
+{
+    background: none !important;
+}
+
+.comment-body div.text-center.bottom-0
+{
+    background: none !important;
+}
+/* }}} */
+
+button.btn-sm
+{
+    border: 1px solid $background-light !important;
+    border-radius: 6px !important;
+}
+
+button.btn-sm:hover
+{
+    border-color: $grey !important;
+}
+
+button.btn-with-count
+{
+    border: none !important;
+}
+
+div.bg-blue-light
+{
+    background-color: $sel-background !important;
+}
+.border-top
+{
+    border-color: $background-light !important;
+}
+.rounded-1
+{
+    border-color: $background-light !important;
+}
+
+a.topic-tag
+{
+    background-color: $sel-background !important;
+}
+
+.discussion-item-icon
+{
+    background-color: $sel-background !important;
+}
+
+/* different labels {{{ */
+a.IssueLabel[title='Good for newcomers'],
+a.IssueLabel[title='good first issue']
+{
+    color: $light !important;
+    background-color: $stress1 !important;
+}
+a.IssueLabel[title='area:ci']
+{
+    color: $light !important;
+    background-color: $stress2 !important;
+}
+a.IssueLabel[title='Contributions encouraged']
+{
+    color: $light !important;
+    background-color: $stress1 !important;
+}
+a.IssueLabel[title='enhancement']
+{
+    color: $light !important;
+    // background-color: var(--stress3) !important;
+    background-color: $stress3 !important;
+}
+a.IssueLabel[title='help text/docs, README, online manuals']
+{
+    background-color: $stress3 !important;
+    color: $light !important;
+}
+a.IssueLabel[title='priority: 1 - middle']
+{
+    background-color: $stress2 !important;
+    color: $light !important;
+}
+/* }}} */
+
+.bg-gray-light
+{
+    background-color: $main-background-color !important;
+}

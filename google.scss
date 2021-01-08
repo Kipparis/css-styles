@@ -1,0 +1,1284 @@
+@import "/home/kip/.cache/wal/colors.scss";
+
+// checkc "INFO" tags in file when applying to colorcheme
+// It's filter adjasment most of time (like hue rotate)
+
+$main-background-color: $color0;
+$background-dark: darken($main-background-color, 5%);
+/* used to separate sections from each other (like borders) */
+$background-light: lighten($main-background-color, 18%);
+
+$light: $color15;
+$grey: lighten($color8, 00%);
+
+$link-color: $color2;
+
+$stress1: $color1; /* current opened tab in repository */
+$stress2: $color9; /* hi last commiter name */
+$stress3: $color12;
+$stress4: $color2;
+
+/* color when you need to emphasize some section (neighter it's button
+ * or heading to something */
+// $section-emph-border: lighten($color1, 5%);
+$section-emph-border: lighten($color11, 0%);
+$section-emph-background: darken($color11, 55%);
+
+$sel-background: darken($color8, 25%);
+// $sel-background: #ff0000;
+
+$button-border-hover: #8d969e;
+
+$debug: #7a5178;
+
+// general for all cites {{{
+    // just becouse I hate how some companies implement this, I turn off any
+    // text decoration from links (your cursor might still show
+    // available clicks)
+a, a:hover, a:visited, a:link, a[href]
+{
+    text-decoration: none !important;
+}
+// }}}
+// welcom page {{{
+// section in the bottom {{{
+#fbar
+{
+    border-color: $background-light !important;
+    background-color: $background-dark !important;
+    // region (Russia)
+    .fbar div
+    {
+        color: $light !important;
+        border-color: $background-light !important;
+    }
+    // information about google
+    .fbar span#fsr,
+    .fbar span#fsl
+    {
+        color: $grey !important;
+    }
+    // idk for now for what this section is, but it creates the border
+    .b2hzT
+    {
+        border-color: $background-light !important;
+    }
+}
+// }}}
+// main content of the page {{{
+// main background in google starting page
+div.ctr-p
+{
+    background-color: $main-background-color !important;
+
+    // "Mail", "Pictures" in top right corner of google main page
+    .gb_Ta .gb_h .gb_g
+    {
+        color: $light !important;
+    }
+    .gb_Ta .gb_i .gb_D
+    {
+        color: $light !important;
+        filter: invert(100%);
+
+    }
+    // image
+    div#hplogo img
+    {
+        // INFO: you'll need to find out this value
+        filter: invert(85.09%);
+    }
+    // input field
+    div.RNNXgb
+    {
+        background-color: $background-dark !important;
+        border-color: $background-light !important;
+
+        // inputted text
+        input.gLFyf
+        {
+            color: $light !important;
+            text-decoration: none !important;
+            &::spelling-error
+            {
+                text-decoration: none !important;
+            }
+        }
+        &:hover
+        {
+            border-color: $background-light !important;
+        }
+
+        // delimiter between user input and keyboard icon
+        span.FqnKTc
+        {
+            border-color: $background-light !important;
+        }
+    }
+    // suggestions to input
+    div.aajZCb
+    {
+        // container for entries
+        background-color: $background-dark !important;
+        border-left: 1px solid $background-light !important;
+        border-right: 1px solid $background-light !important;
+        border-bottom: 1px solid $background-light !important;
+
+        // border between user input and suggestions
+        div.xtSCL
+        {
+            border-color: $background-light !important;
+        }
+
+        // entries
+        ul.erkvQe li
+        {
+            background-color: $background-dark !important;
+            span
+            {
+                color: $light !important;
+            }
+            &:hover
+            {
+                background-color: $sel-background !important;
+            }
+        }
+
+        // "Search in Google", "I'll be lucky"
+        div.tfB0Bf input
+        {
+            background: none !important;
+            background-color: $background-dark !important;
+            color: $light !important;
+            border-color: $background-light !important;
+            &:hover
+            {
+                border-color: $button-border-hover !important;
+            }
+        }
+    }
+    // "Search in Google", "I'll be lucky"
+    div.FPdoLc input
+    {
+        background-image: none !important;
+        background-color: $background-dark !important;
+        color: $light !important;
+        border-color: $background-light !important;
+        &:hover
+        {
+            border-color: $button-border-hover !important;
+        }
+    }
+    // "Enter" button
+    a.gb_je.gb_4
+    {
+        background: none !important;
+        background-color: $section-emph-background !important;
+        border-color: $section-emph-border !important;
+    }
+}
+// }}}
+// dropdown menu for other google applications {{{
+body.EIlDfe .EHzcec.eejsDc
+{
+    background-color: $main-background-color !important;
+    color: $light !important;
+
+    // hovering over one of the items in google applications
+    li.j1ei8c:hover
+    {
+        border-radius: 10px !important;
+        background-color: $sel-background !important;
+    }
+    a.tX9u1b:hover
+    {
+        background-color: $sel-background !important;
+        span.Rq5Gcb
+        {
+            background-color: $sel-background !important;
+        }
+    }
+    span.Rq5Gcb
+    {
+        color: $light !important;
+    }
+    // random border between applications
+    span.dGrefb
+    {
+        border-color: $background-light !important;
+    }
+    // bottom "Other applications from google"
+    div.WwFbJd a.NQV3m
+    {
+        background-color: $background-dark !important;
+        border-color: $background-light !important;
+        color: $link-color !important;
+    }
+}
+// }}}
+// "Google services are available on various languages" {{{
+div#SIvCob
+{
+    color: $grey !important;
+    // current language
+    a
+    {
+        color: $link-color !important;
+    }
+}
+
+// }}}
+// }}}
+// search results {{{
+// header (containes input box {{{
+div.sfbg
+{
+    background-color: $main-background-color !important;
+}
+// when you scroll down, show the border
+.minidiv .sfbg
+{
+    box-shadow: none !important;
+    border-bottom: 1px solid $background-light !important;
+}
+// }}}
+// input section {{{
+.RNNXgb
+{
+    background: none !important;
+    background-color: $background-dark !important;
+    border-color: $background-light !important;
+    // text inserted
+    input.gLFyf
+    {
+        color: $light !important;
+    }
+    // delimiter between user input and keyboard icon
+    .FqnKTc
+    {
+        border-color: $background-light !important;
+    }
+    // remove error line beneath the wrong word
+    .pR49Ae span
+    {
+        background: none !important;
+    }
+    // lens icon
+    button.Tg7LZd span.z1asCe
+    {
+        color: $stress2 !important;
+    }
+}
+// delimiter between input sectionand nav bar
+.dodTBe
+{
+    background: $main-background-color !important;
+}
+// }}}
+// dropdown entries from input suggestion {{{
+.aajZCb
+{
+    background: $background-dark !important;
+    border: 1px solid $background-light !important;
+    border-top: none !important;
+    box-shadow: none !important;
+
+    // delimiter btw input and suggestion box
+    .xtSCL
+    {
+        border-color: $background-light !important;
+    }
+    // selected entry from suggestion entries
+    li.sbhl,
+    li.sbct:hover
+    {
+        background-color: $sel-background !important;
+    }
+    // text of suggestions
+    span
+    {
+        color: darken($light, 10%) !important;
+        b
+        {
+            color: $light !important;
+        }
+    }
+}
+// }}}
+// right side of header {{{
+.gb_Ta
+{
+    // "Enter" button
+    .gb_je
+    {
+        background-color: $section-emph-background !important;
+        border: 1px solid $section-emph-border !important;
+        color: $light !important;
+    }
+}
+// }}}
+// top navigation (below input field) {{{
+div#top_nav
+{
+    // container for navigation entries
+    .yg51vc
+    {
+        background-color: $main-background-color !important;
+        // selected entry
+        .hdtb-mitem.hdtb-msel
+        {
+            color: $stress2 !important;
+            border-color: $stress2 !important;
+            .MQkt5e
+            {
+                background: $stress2 !important;
+            }
+        }
+        // all entries
+        .hdtb-mitem a
+        {
+            color: $grey !important;
+        }
+        // "More" entry
+        .hdtb-dd-b.sqXXR
+        {
+            color: $grey !important;
+        }
+        // "Tools" button
+        #hdtb-tls:hover
+        {
+            background: none !important;
+            background-color: $sel-background !important;
+            border-color: $button-border-hover !important;
+            color: $light !important;
+        }
+        // "Tools" button activated
+        .hdtb-tl-sel
+        {
+            background: none !important;
+            background-color: $section-emph-background !important;
+            border-color: $section-emph-border !important;
+            color: $light !important;
+        }
+    }
+    // delimiter between navigation and total statistics
+    #hdtb
+    {
+        border-color: $background-light !important;
+    }
+}
+// }}}
+// search results (total statistics) {{{
+.appbar
+{
+    border-color: $background-light !important;
+    background-color: $main-background-color !important;
+    #result-stats
+    {
+        color: $grey !important;
+    }
+}
+// }}}
+// search results (actual results) {{{
+.main
+{
+    background: $main-background-color !important;
+    // just lines (idk how to describe but it's simple lines feeling
+    // width of the page, like delimiters)
+    .akqY6
+    {
+        background: $grey !important;
+    }
+    // "see results about"
+    .kp-blk
+    {
+        // basically "see results" text
+        .garHBe
+        {
+            color: $light !important;
+        }
+        border-color: $background-light !important;
+        // border beneath "see results about" header
+        .y8Jpof.pPLc9e.kpQuGf
+        {
+            border-color: $background-light !important;
+        }
+        .y8Jpof
+        {
+            &:hover
+            {
+                background: $sel-background !important;
+            }
+            // header text
+            .xXEKkb
+            {
+                color: $light !important;
+            }
+            // description
+            .cwUqwd
+            {
+                color: $grey !important;
+            }
+        }
+        // second border
+        .nm6nmc.l0jSyf.kpQuGf
+        {
+            border-color: $background-light !important;
+        }
+    }
+    // short answer (when google tries to emmidiately show short answer to your queery) {{{
+    .xpdopen
+    {
+        color: $light !important;
+        background: $main-background-color !important;
+
+        // source main cite
+        cite
+        {
+            color: $light !important;
+            // source subdomaine
+            span
+            {
+                color: $grey !important;
+            }
+        }
+        // name of article
+        div.ellip span
+        {
+            color: $link-color !important;
+        }
+    }
+    // additional answers from search
+    .jmjoTe
+    {
+        // header
+        h3 a
+        {
+            color: $link-color !important;
+        }
+        // something from page
+        .st
+        {
+            color: $grey !important;
+        }
+        // more results
+        a.fl
+        {
+            color: $link-color !important;
+        }
+    }
+    // }}}
+    // "People also ask" {{{
+    .JolIg
+    {
+        color: $light !important;
+    }
+    // delimiters between entries in "People also ask"
+    .cbphWd
+    {
+        border-color: $background-light !important;
+    }
+    // }}}
+    // returned search entries {{{
+    .hlcw0c
+    {
+        // source
+        cite
+        {
+            color: $light !important;
+            // subdomain from main cite
+            span
+            {
+                color: $grey !important;
+            }
+        }
+        // do not underscore link on hover
+        .yuRUbf a span *,
+        {
+            text-decoration: none !important;
+        }
+        // "Tranlate page"
+        a.fl span
+        {
+            color: darken($link-color,20%) !important;
+        }
+        // use cached (arrow on right side of source)
+        .action-menu
+        {
+            .GHDvEf
+            {
+                background: $main-background-color !important;
+                span.mn-dwn-arw
+                {
+                    border-color: $grey transparent
+                }
+            }
+            .action-menu-panel
+            {
+                border-color: $background-light !important;
+                border-radius: 3px !important;
+                .action-menu-item
+                {
+                    background: $main-background-color !important;
+                    span
+                    {
+                        color: $light !important;
+                    }
+                    &:hover
+                    {
+                        background: $sel-background !important;
+                    }
+                }
+            }
+        }
+        // name of article
+        div.ellip span
+        {
+            color: $link-color !important;
+        }
+        // content of article
+        .IsZvec
+        {
+            color: $grey !important;
+            // emphasized words (those which are common with query)
+            em
+            {
+                color: lighten($grey, 15%) !important;
+            }
+        }
+        // available categories in article
+        .HiHjCd a
+        {
+            color: $link-color !important;
+        }
+    }
+    // }}}
+    // "videos" {{{
+    // weird thing around header, videos ocntainer and view all
+    // container that is not parent of them
+    .Xeztj.xuc
+    {
+        background: $main-background-color !important;
+    }
+    // header
+    .Nxb87
+    {
+        background: $main-background-color !important;
+        h3
+        {
+            color: $light !important;
+        }
+    }
+    // container for videos
+    .MGqjK
+    {
+        background: $main-background-color !important;
+        border-color: $background-light !important;
+        // container for single video
+        .VibNM
+        {
+            border-color: $background-light !important;
+            .WpKAof:hover .CwxNSe
+            {
+                text-decoration: none !important;
+            }
+            // hover video card
+            .q2eaDe:hover
+            {
+                background: $sel-background !important;
+            }
+            // video name
+            .fJiQld.oz3cqf.p5AXld
+            {
+                color: $link-color !important;
+                &:hover
+                {
+                    text-decoration: none !important;
+                }
+            }
+            // source of video
+            .hDeAhf
+            {
+                color: $light !important;
+            }
+            // all the grey text
+            span
+            {
+                color: $grey !important;
+            }
+        }
+    }
+    // "view all" container
+    .feTRce.KKIDe.mIKy0c.dGWpb
+    {
+        background: $main-background-color !important;
+        // width line
+        .pb5vrc
+        {
+            background: $background-light !important;
+        }
+        // the button
+        .MXl0lf.mtqGb
+        {
+            background: $main-background-color !important;
+            border-color: $background-light !important;
+            span
+            {
+                color: $link-color !important;
+            }
+            &:hover
+            {
+                border-color: $button-border-hover !important;
+                background: $sel-background !important;
+            }
+        }
+    }
+    // }}}
+    // latest from ___ {{{
+    .ULSxyf
+    {
+        // title
+        .iJ1Kvb
+        {
+            color: $light !important;
+        }
+        // basically card
+        .ttfMne.cv2VAd
+        {
+            border-color: $background-light !important;
+            background: $main-background-color !important;
+            &:hover
+            {
+                background: $sel-background !important;
+                border-color: $button-border-hover !important;
+            }
+            // card name
+            .mRnBbe.QgUve.oz3cqf.p5AXld.nDgy9d
+            {
+                color: $link-color !important;
+            }
+            // hovering over card don't give you underscore
+            a.VlJC0:hover,
+            a.VlJC0:hover .pAx2Gb
+            {
+                text-decoration: none !important;
+            }
+            // source of card
+            cite
+            {
+                color: $light !important;
+            }
+            // all the grey text
+            span
+            {
+                color: $grey !important;
+            }
+        }
+        // right arrow (to see more)
+        .CNf3nf.LhCR5d
+        {
+            background: $main-background-color !important;
+            border-color: $background-light !important;
+            span
+            {
+                color: $light !important;
+            }
+            &:hover
+            {
+                background: $sel-background !important;
+                border-color: $button-border-hover !important;
+            }
+        }
+    }
+    // }}}
+    // card on the right (like another description) {{{
+    .I6TXqe
+    {
+        background: $main-background-color !important;
+        border-color: $background-light !important;
+
+        // card top part {{{
+        .K20DDe.R9GLFb.JXFbbc.LtKgIf.ySjHwc
+        {
+            // share icon
+            .glhbv.pa8yL.z1asCe.Fp7My
+            {
+                color: $light !important;
+            }
+            // transcription / full name
+            .kno-ecr-pt span
+            {
+                color: $light !important;
+            }
+            // type of search term
+            .wwUB2c span
+            {
+                color: $grey !important;
+            }
+        }
+        // }}}
+        // first delimiter
+        .vIPkDb
+        {
+            border-bottom-color: $background-light !important;
+        }
+        // middle section {{{
+        .B1uW2d.ellip.PZPZlf
+        {
+            // world icon
+            span.psXvZ.z1asCe.GYDk8c
+            {
+                color: darken($light, 15%) !important;
+            }
+            // cite url
+            span.ellip
+            {
+                color: $link-color !important;
+            }
+        }
+        // }}}
+        // second delimiter
+        .B1uW2d
+        {
+            border-bottom-color: $background-light !important;
+        }
+        // card bottom part {{{
+        .Kot7x
+        {
+            // description
+            .kno-rdesc span
+            {
+                color: $grey !important;
+            }
+            // source to see more
+            a.ruhjFe.NJLBac.fl
+            {
+                color: $link-color !important;
+            }
+            // key
+            span.w8qArf a,
+            span.w8qArf
+            {
+                color: $light !important;
+            }
+            // value
+            span.LrzXr.kno-fv
+            {
+                color: $light !important;
+                a
+                {
+                    color: $link-color !important;
+                }
+            }
+            // other similars
+            .Ss2Faf
+            {
+                color: $light !important;
+            }
+            // other similars website picture
+            .Rlm17c.BA0A6c
+            {
+                background-color: $main-background-color !important;
+            }
+            // other similars website name
+            .CtCigf.gBIQub
+            {
+                color: $link-color !important;
+            }
+        }
+        // }}}
+    }
+    // claim this knowledge panel
+    .H73aad
+    {
+        background: $main-background-color !important;
+        border-color: $background-light !important;
+        // text
+        .jleFbf
+        {
+            color: darken($light, 10%) !important;
+        }
+        &:hover
+        {
+            background: $sel-background !important;
+            border-color: $button-border-hover !important;
+        }
+    }
+    // }}}
+    // "Searches related to ___" {{{
+    #brs
+    {
+        // heading
+        .mmxugd span
+        {
+            color: $light !important;
+        }
+        // related searches
+        .card-section a
+        {
+            color: $link-color !important;
+            b
+            {
+                color: lighten($link-color, 10%);
+            }
+        }
+    }
+    // }}}
+    // pages navigation (next, previous, nth) {{{
+    #foot
+    {
+        // left side of Goooo...oogle
+        td.d6cvqb
+        {
+            // text ("Previous","Next")
+            span {
+                color: $link-color !important;
+            }
+            // image
+            span.SJajHc
+            {
+                // I don't won't to produce large number of additional
+                // png's so I just apply filter so it looks same as
+                // colorcheme
+                // INFO: check this when changing colorscheme
+                filter: hue-rotate(40deg) !important;
+            }
+        }
+        // page you are on
+        td.YyVfkd
+        {
+            // INFO: check this when changing colorscheme
+            // filter is for big "O" symbol (to change it's color)
+            filter: hue-rotate(200deg) !important;
+            // this one is for page number underneath
+            color: $light !important;
+        }
+        // page numbers you can click
+        td a.fl
+        {
+            color: $link-color !important;
+            // INFO: check this when changing colorscheme
+            // big "O" image
+            span
+            {
+                filter: hue-rotate(240deg) !important;
+            }
+        }
+    }
+    // }}}
+    // "Images for ___" {{{
+    .LnbJhc
+    {
+        // heading
+        h3[role='heading']
+        {
+            color: $light !important;
+        }
+        // icon left to heading
+        .iv236
+        {
+            color: $grey !important;
+        }
+        // related images search entries
+        .jD7Eif a.dgdd6c .WGYX8
+        {
+            background: $main-background-color !important;
+            border-color: $background-light !important;
+            // text in it
+            .AB4Jjf
+            {
+                color: $light !important;
+            }
+            &:hover
+            {
+                background: $sel-background !important;
+                border-color: $button-border-hover !important;
+            }
+        }
+        // show more related images search entries button
+        // show less related images search entries button
+        .KPV9xf,
+        .HErFVb
+        {
+            background-color: $main-background-color !important;
+            border-color: $background-light !important;
+            &:hover
+            {
+                background-color: $sel-background !important;
+                border-color: $button-border-hover !important;
+            }
+        }
+        // "View all" section
+        .KqWjY
+        {
+            // line like delimiter
+            .pb5vrc
+            {
+                background-color: $background-light !important;
+            }
+            // actual "View all" button
+            .MXl0lf
+            {
+                background: $main-background-color !important;
+                border-color: $background-light !important;
+                span
+                {
+                    color: $link-color !important;
+                }
+                &:hover
+                {
+                    border-color: $button-border-hover !important;
+                    background: $sel-background !important;
+                }
+            }
+        }
+        // buttons to scroll further in images
+        .CNf3nf.LhCR5d
+        {
+            color: $light !important;
+            background: $main-background-color !important;
+            border-color: $background-light !important;
+        }
+
+    }
+    // }}}
+    // "Popular applications" {{{
+    #bres
+    {
+        // heading
+        h3.V2Zq0e span
+        {
+            color: $light !important;
+        }
+        // content container
+        .lgJJud
+        {
+            background: $main-background-color !important;
+            // delimiter
+            .eEz1Rd
+            {
+                border-color: $background-light !important;
+            }
+            // "Pupular __ applications"
+            .iKt1P
+            {
+                color: $light !important;
+            }
+            // preview card
+            a.EASEnb.PZPZlf
+            {
+                border-color: $background-light !important;
+                // inner text
+                .f3LoEf
+                {
+                    color: $light !important;
+                }
+                &:hover
+                {
+                    border-color: $button-border-hover !important;
+                    background: $sel-background !important;
+                }
+            }
+            // button "See more"
+            .MXl0lf
+            {
+                background:   $main-background-color !important;
+                border-color: $background-light !important;
+                span
+                {
+                    color: $light !important;
+                }
+                &:hover
+                {
+                    border-color: $button-border-hover !important;
+                    background: $sel-background !important;
+                }
+            }
+        }
+    }
+    // }}}
+}
+// }}}
+// google translate (if you enter "translate") {{{
+// two borders
+.vCOSGb
+{
+    border-color: $background-light !important;
+}
+.DHcWmd
+{
+    background: $background-light !important;
+}
+// exchange languages icon
+.tw-menu-btn
+{
+    color: $grey !important;
+}
+// }}}
+// }}}
+// translate {{{
+// header container {{{
+header.gb_qa
+{
+    background: $main-background-color !important;
+    border-color: $background-light !important;
+}
+// }}}
+// page container {{{
+.zQTmif.SSPGKf.RvYhPd.BIdYQ.aL9XFd
+{
+    // translation type ("Text", "Documents") {{{
+    .hgbeOc
+    {
+        background-color: $main-background-color !important;
+        border-color: $background-light !important;
+        .VfPpkd-LgbsSe
+        {
+            background: $main-background-color !important;
+            border-color: $background-light !important;
+            color: $stress2 !important;
+            &:hover
+            {
+                background: $sel-background !important;
+            }
+        }
+        // active button
+        .VfPpkd-Jh9lGc::before,
+        .VfPpkd-Jh9lGc::after
+        {
+            background-color: $stress3 !important;
+        }
+    }
+    // }}}
+    // header (language selection) {{{
+    .aCQag
+    {
+        // main background color
+        background: $main-background-color !important;
+        border-color: $background-light !important;
+
+        // element for hovering
+        .VfPpkd-YVzG2b:hover
+        {
+            background: $sel-background !important;
+        }
+
+        // remove gradient on right side of languages
+        .X4DQ0::after
+        {
+            background: none !important;
+        }
+
+        .VfPpkd-Bz112c-LgbsSe.yHy1rc.eT1oJ.q7sDqe.KY3GZb.szLmtb
+        {
+            color: $grey !important;
+        }
+
+        // all clickable languages
+        .yUUmWd .VfPpkd-jY41G-V67aGc
+        {
+            color: $grey !important;
+        }
+        // text of selected language
+        .yUUmWd.VfPpkd-AznF2e-OWXEXe-auswjd .VfPpkd-jY41G-V67aGc
+        {
+            color: $stress4 !important;
+        }
+        // underline beneath selected language
+        span.VfPpkd-AznF2e-wEcVzc.VfPpkd-AznF2e-wEcVzc-OWXEXe-NowJzb
+        {
+            border-color: $stress4 !important;
+        }
+        // "swap" icon
+        i.VfPpkd-kBDsod
+        {
+            color: $grey !important;
+        }
+    }
+    // }}}
+    // delimiter (translation type | translation settings) {{{
+    .ccvoYb
+    {
+        border-color: $background-light !important;
+        border-top: 1px solid $background-light !important;
+        box-shadow: 0 2px 2px $background-light !important;
+    }
+    // }}}
+    // left input {{{
+    .rm1UF.UnxENd
+    {
+        background: $main-background-color !important;
+        // user input
+        textarea
+        {
+            color: $light !important;
+        }
+        // cross icon
+        i.material-icons-extended
+        {
+            color: $grey !important;
+        }
+        // transcription
+        .kO6q6e
+        {
+            color: $grey !important;
+        }
+        // "speak" icon
+        .VfPpkd-Bz112c-kBDsod
+        {
+            color: $grey !important;
+        }
+        // disabled "tell" icon
+        .yHy1rc:disabled,
+        .fzRBVc:disabled
+        {
+            color: darken($grey, 20%) !important;
+        }
+        // icons bot-right
+        .ita-kd-img
+        {
+            filter: invert(100%) !important;
+        }
+    }
+    // }}}
+    // right output {{{
+    .P6w8m
+    {
+        background: $main-background-color !important;
+        // delimiter between to sections of translate
+        border-color: $background-light !important;
+        // translated text
+        .J0lOec
+        {
+            color: $light !important;
+        }
+        // star icon & speach icon
+        .VfPpkd-Bz112c-kBDsod
+        {
+            color: $grey !important;
+        }
+        // transcription
+        .kO6q6e
+        {
+            color: $grey !important;
+        }
+        // icons in the bot-right angle
+        button.VfPpkd-Bz112c-LgbsSe.yHy1rc.eT1oJ.q7sDqe.Ydl7dd span,
+        .VfPpkd-kBDsod
+        {
+            color: $grey !important;
+        }
+    }
+    // }}}
+    // bottom setup {{{
+    background: $main-background-color !important;
+    // "History", "Saved", "Suggest translation" image
+    .ySES5
+    {
+        background: none !important;
+        border-color: $background-light !important;
+        .TYVfy.NMm5M
+        {
+            color: $grey !important;
+        }
+        &:hover
+        {
+            border-color: $button-border-hover !important;
+            background: $sel-background !important;
+        }
+    }
+    // "History", "Saved", "Suggest translation" text
+    .TcXXXb
+    {
+        color: $grey !important;
+    }
+    // }}}
+}
+// }}}
+// synonims {{{
+.KjuTac
+{
+    background: $main-background-color !important;
+    .Bcbxbe:hover
+    {
+        background: $sel-background !important;
+    }
+    // native
+    .uNr6ee
+    {
+        color: $light !important;
+    }
+    // foreign
+    .xUPQqb
+    {
+        color: $grey !important;
+    }
+}
+// }}}
+// definition (on left side) {{{
+.I87fLc.XzOhkf
+{
+    background: $main-background-color !important;
+    border-color: $background-light !important;
+    // native word
+    .S6GkK
+    {
+        color: $light !important;
+    }
+    // on right side on native word
+    .nYkDR
+    {
+        color: $grey !important;
+    }
+    // various descriptions
+    .fw3eif
+    {
+        color: $light !important;
+    }
+    // example
+    .MZgjEb
+    {
+        color: $grey !important;
+    }
+    // numbers on left side
+    .RSggmb
+    {
+        background: $main-background-color !important;
+        border-color: $background-light !important;
+        color: darken($light, 10%) !important;
+    }
+    // part of speech
+    .eIKIse
+    {
+        color: $stress2 !important;
+    }
+    // various translations on right side
+    .kgnlhe
+    {
+        color: $light !important;
+    }
+    // how translation is used on native language
+    li.DshmM
+    {
+        color: $grey !important;
+    }
+    // selected native translation (from list of usages)
+    .FwR7Pc
+    {
+        background: $sel-background !important;
+        color: $light !important;
+    }
+    // bars indicating frequency of usage
+    // filled
+    .ksE5nf.EiZ8Dd
+    {
+        background: $stress2 !important;
+    }
+    // empty
+    .ksE5nf.fXx9Lc
+    {
+        background: $background-dark !important;
+    }
+}
+// }}}
+// }}}
