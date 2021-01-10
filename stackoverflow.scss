@@ -1,7 +1,10 @@
 @import "/home/kip/.cache/wal/colors.scss";
 
-// checkc "INFO" tags in file when applying to colorcheme
+// check "INFO" tags in file when applying to colorcheme
 // It's filter adjasment most of time (like hue rotate)
+// check "FUNNY" tags for things I can't understand (you might let me know how
+// why it's done so)
+
 
 $main-background-color: $color0;
 $background-dark: darken($main-background-color, 5%);
@@ -17,12 +20,15 @@ $stress1: $color1; /* current opened tab in repository */
 $stress2: $color9; /* hi last commiter name */
 $stress3: $color12;
 $stress4: $color2;
+$stress5: $color10;
 
 /* color when you need to emphasize some section (neighter it's button
  * or heading to something */
 // $section-emph-border: lighten($color1, 5%);
 $section-emph-border: lighten($color11, 0%);
 $section-emph-background: darken($color11, 55%);
+
+$button-emph-background: darken($stress3, 35%);
 
 $sel-background: darken($color8, 25%);
 // $sel-background: #ff0000;
@@ -34,4 +40,550 @@ $debug: #7a5178;
 body
 {
     background: $main-background-color !important;
+    color: $light !important;
 }
+
+// font color setup {{{
+// used in suggestion box to emphasyse category
+.fc-dark
+{
+    color: $light !important;
+}
+// used in suggestion box for regular text
+.fc-black-300
+{
+    color: $grey !important;
+}
+// something between grey and light
+// used in number of votes for a question
+.fc-black-500
+{
+    color: darken($light, 10%) !important;
+}
+// used in main content ("asked", "active", "viewed" at the top)
+.fc-light
+{
+    color: $grey !important;
+}
+
+// "follow" under the question (should be highlighted by black when
+// hovered)
+.fc-black-400
+{
+    color: $grey !important;
+}
+
+.fc-orange-400
+{
+    color: $stress2 !important;
+}
+
+.h\:fc-black-700:hover,
+.h\:fc-black-700:focus
+{
+    color: $light !important;
+}
+// }}}
+// border color setup {{{
+// delimiter used in suggestion box
+.bc-black-2,
+.bc-black-075
+{
+    border-color: $background-light !important;
+}
+
+.bc-blue-3
+{
+    border-color: lighten($stress1, 00%) !important;
+}
+// }}}
+// button style setup {{{
+// regular button (behavior same across all buttons)
+.s-btn
+{
+    border-color: $background-light !important;
+    &:hover
+    {
+        background-color: $sel-background !important;
+    }
+}
+// button that should be filled
+.s-btn.s-btn__filled
+{
+    background-color: $button-emph-background !important;
+    border-color: $background-light !important;
+    box-shadow: none !important;
+    &:hover
+    {
+        border-color: $button-border-hover !important;
+        color: $light !important;
+    }
+}
+// btn color should found
+.s-btn__unset
+{
+    color: unset !important;
+    &:hover
+    {
+        color: unset !important;
+    }
+}
+// button that should not emph from environment ("Active", "Oldest",
+// "Votes" in bottom of question)
+.s-btn__muted
+{
+    color: $grey !important;
+    &:hover
+    {
+        color: $light !important;
+    }
+}
+
+// selected button
+.s-btn__muted.is-selected
+{
+    background-color: $sel-background !important;
+    color: $light !important;
+}
+// }}}
+// link setup {{{
+a
+{
+    color: $link-color !important;
+    &:hover
+    {
+        color: lighten($link-color, 10%) !important;
+    }
+}
+
+// links that should inherit color
+.s-link__inherit,
+a.s-link__inherit
+{
+    color: inherit !important;
+    &:hover
+    {
+        color: inherit !important;
+    }
+}
+// few links on right side (just clickable text)
+.s-anchors.s-anchors__grayscale a:not(.s-link),
+.s-anchors .s-anchors.s-anchors__grayscale a:not(.s-link),
+.s-anchors.s-anchors__grayscale .s-btn.s-btn__link,
+.s-anchors .s-anchors.s-anchors__grayscale .s-btn.s-btn__link
+{
+    color: $light !important;
+}
+// }}}
+// tag setup (language or library tags) {{{
+// popup when hovering over tag
+.tag-popup .-container
+{
+    background: $main-background-color !important;
+    border-color: $background-light !important;
+}
+.tag-popup .-arrow:before
+{
+    background: $main-background-color !important;
+    border-color: $background-light !important;
+}
+// language tag (used in "Remote jobs" card on right side of screen)
+.s-tag
+{
+    color: $light !important;
+    background: $stress2 !important;
+}
+// }}}
+// advertisement
+.GoogleCreativeContainerClass,
+.js-zone-container.zone-container-main.mb8,
+.js-zone-container.zone-container-sidebar
+{
+    display: none !important;
+}
+
+// code {{{
+// code
+.s-code-block
+{
+    background: $background-dark !important;
+    color: $light !important;
+    .hljs-title
+    {
+        color: $stress1 !important;
+    }
+    .hljs-keyword
+    {
+        color: $stress2 !important;
+    }
+    .hljs-type
+    {
+        color: $stress3 !important;
+    }
+}
+// }}}
+// header {{{
+header.top-bar
+{
+    background-color: $main-background-color !important;
+    border-bottom: 1px solid $background-light !important;
+    // remove border on top (it does nothing)
+    border-top: none !important;
+    // border-top-color: $stress1 !important;
+
+    // stackoverlow icon on left side {{{
+    a.-logo
+    {
+        &:hover
+        {
+            background: $sel-background !important;
+        }
+        .-img
+        {
+            filter: invert(100%) !important;
+        }
+    }
+    // }}}
+    // input box {{{
+    .searchbar .s-input
+    {
+        background: $background-dark !important;
+        border-color: $background-light !important;
+        color: $light !important;
+    }
+    // suggestion box from input box
+    .s-popover
+    {
+        background: $background-dark !important;
+    }
+    // arrow from suggestion box
+    .s-popover--arrow__tl, .s-popover--arrow__tc, .s-popover--arrow__tr, .s-popover--arrow__bl, .s-popover--arrow__bc, .s-popover--arrow__br, .s-popover--arrow__lt, .s-popover--arrow__lc, .s-popover--arrow__lb, .s-popover--arrow__rt, .s-popover--arrow__rc, .s-popover--arrow__rb
+    {
+        color: $background-dark !important;
+    }
+    // }}}
+    // item hovered (About, Products, For Teams)
+    a.-marketing-link,
+    a.-marketing-link
+    {
+        color: $grey !important;
+        &:hover
+        {
+            background: $sel-background !important;
+            color: $light !important;
+        }
+    }
+    // your profile pic
+    .my-profile:hover
+    {
+        background: $sel-background !important;
+    }
+    // items on right side
+    a.-link
+    {
+        color: $grey !important;
+        &:hover
+        {
+            background: $sel-background !important;
+            color: $light !important;
+        }
+    }
+}
+// }}}
+// left navigation bar {{{
+.left-sidebar
+{
+    // all the items
+    .nav-links--link
+    {
+        color: $grey !important;
+        &:hover
+        {
+            color: $light !important;
+        }
+    }
+    // item on which you are
+    li.youarehere .nav-links--link
+    {
+        color: $light !important;
+        background: $section-emph-background !important;
+        border-color: $section-emph-border !important;
+        .svg-icon
+        {
+            color: $light !important;
+        }
+    }
+}
+// }}}
+// main content {{{
+#content
+{
+    // ok
+    background: $main-background-color !important;
+    border-color: $background-light !important;
+    // question header {{{
+    .question-hyperlink
+    {
+        color: $light !important;
+        &:hover
+        {
+            color: $light !important;
+        }
+    }
+    // }}}
+    // "Ask Question" button
+    .s-btn__primary
+    {
+        background-color: $button-emph-background !important;
+        box-shadow: none !important;
+        border-color: $section-emph-border !important;
+    }
+    // answer
+    .answer
+    {
+        border-bottom-color: $background-light !important;
+    }
+    // comments
+    ul.comments-list .comment>*
+    {
+        border-bottom-color: $background-light !important;
+    }
+    // voting buttons on left side
+    .js-voting-container
+    {
+        color: $grey !important;
+    }
+    // tags under the question
+    .post-tag
+    {
+        background: $stress2 !important;
+        color: $light !important;
+        &:hover
+        {
+            background: lighten($stress2, 10%) !important;
+            color: $light !important;
+        }
+    }
+    // items under the question ("share", "edit", "follow")
+    .post-menu>a
+    {
+        color: $grey !important;
+        &:hover
+        {
+            color: $light !important;
+        }
+    }
+    // one's posted question info (user info)
+    .user-info
+    {
+        color: $light !important;
+        // score
+        .badgecount
+        {
+            color: $grey !important;
+        }
+    }
+    // post signature (to the right side of user info)
+    .owner
+    {
+        background-color: $background-dark !important;
+        border: 1px solid $background-light !important;
+        // if it's new contributor
+        .new-contributor-indicator
+        {
+            border-top: 1px solid $background-light !important;
+            background: $background-dark !important;
+            span
+            {
+                color: $light !important;
+            }
+        }
+    }
+}
+// }}}
+// right side bar {{{
+.show-votes
+{
+    // first card {{{
+    .s-sidebarwidget__yellow
+    {
+        border-color: $background-light !important;
+        background: $main-background-color !important;
+        .s-sidebarwidget--header
+        {
+            background: $background-dark !important;
+            color: $grey !important;
+            border-color: $background-light !important;
+        }
+        &:after
+        {
+            border: none !important;
+        }
+    }
+    // }}}
+    // second card {{{
+    .clc-jobs-multi
+    {
+        // filter: invert(100%) !important;
+        background: none !important;
+        border: 1px solid $background-light !important;
+        .header
+        {
+            border-bottom: 1px solid $background-light !important;
+        }
+        .middle
+        {
+            background: $main-background-color !important;
+            .jobs
+            {
+                border-bottom: 1px solid $background-light !important;
+            }
+        }
+        // container for job
+        .job-wrap
+        {
+            background: $main-background-color !important;
+            // job title
+            .title
+            {
+                color: $link-color !important;
+                &:hover
+                {
+                    color: lighten($link-color, 10%) !important;
+                }
+            }
+            // "REMOTE" sign
+            .remote
+            {
+                color: $color10 !important;
+            }
+        }
+    }
+
+    // }}}
+    // "Related" card {{{
+    .sidebar-related
+    {
+        #h-related
+        {
+            color: $grey !important;
+        }
+    }
+    // }}}
+    // "Hot Network Questions" card {{{
+    #hot-network-questions
+    {
+        // header
+        h4
+        {
+            color: $grey !important;
+        }
+    }
+    // }}}
+    // cards that should be black {{{
+    .s-sidebarwidget
+    {
+        background: $main-background-color !important;
+        border: 1px solid $background-light !important;
+        // FUNNY
+        // idk why they set this property, but is just hides top border
+        // (which they set afterwards via `::after` property :p)
+        &:before
+        {
+            margin-top: 0px !important;
+        }
+        &:after
+        {
+            border: none !important;
+        }
+    }
+    .s-sidebarwidget--header
+    {
+        background: $background-dark !important;
+        border: none !important;
+    }
+    .s-sidebarwidget--content
+    {
+        border: none !important;
+    }
+    // }}}
+    // "Check out these companies" card {{{
+    .clc-cp-multi
+    {
+        background: $main-background-color !important;
+        border-color: $background-light !important;
+    }
+    div.clc-cp-multi>.middle
+    {
+        background: $main-background-color !important;
+    }
+    // }}}
+}
+// }}}
+// input "Your Answer" {{{
+.post-editor
+{
+    // header containing tools
+    .wmd-button-bar
+    {
+        .wmd-button-row
+        {
+            border-color: $background-light !important;
+        }
+        border-color: $background-light !important;
+        // button
+        .wmd-button
+        {
+            color: $grey !important;
+            &:hover
+            {
+                color: $light !important;
+            }
+        }
+    }
+    // input field
+    .s-input
+    {
+        border-color: $background-light !important;
+        background-color: $main-background-color !important;
+        color: $light !important;
+        &:focus-within
+        {
+            box-shadow: 0 0 0 4px rgba($stress2, 0.2) !important;
+        }
+    }
+    // shrink and grow input field
+    .grippie
+    {
+        background-color: $background-dark !important;
+        border-color: $background-light !important;
+    }
+}
+// }}}
+// below input "Notice" {{{
+.s-notice__warning
+{
+    background: $main-background-color !important;
+    border-color: $background-light !important;
+    color: $grey !important;
+}
+
+// }}}
+// bottom of page {{{
+.site-footer
+{
+    background: $background-dark !important;
+    .-title a
+    {
+        color: $grey !important;
+    }
+    .-link
+    {
+        color: darken($grey, 10%) !important;
+        &:hover
+        {
+            color: darken($grey, 5%) !important;
+        }
+    }
+}
+// }}}
