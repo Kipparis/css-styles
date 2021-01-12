@@ -1017,6 +1017,12 @@ div#top_nav
 // }}}
 // }}}
 // translate {{{
+// weird thing behind header and language select {{{
+.RvYhPd::before
+{
+    background: $main-background-color !important;
+}
+// }}}
 // header container {{{
 header.gb_qa
 {
@@ -1040,6 +1046,7 @@ header.gb_qa
             &:hover
             {
                 background: $sel-background !important;
+                border-color: $button-border-hover !important;
             }
         }
         // active button
