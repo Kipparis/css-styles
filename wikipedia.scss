@@ -1,7 +1,10 @@
 @import "/home/kip/.cache/wal/colors.scss";
 
-// checkc "INFO" tags in file when applying to colorcheme
+// check "INFO" tags in file when applying to colorcheme
 // It's filter adjasment most of time (like hue rotate)
+// check "FUNNY" tags for things I can't understand (you might let me know how
+// why it's done so)
+
 
 $main-background-color: $color0;
 $background-dark: darken($main-background-color, 5%);
@@ -17,6 +20,12 @@ $stress1: $color1; /* current opened tab in repository */
 $stress2: $color9; /* hi last commiter name */
 $stress3: $color12;
 $stress4: $color2;
+$stress5: $color10;
+$stress_sec1: darken($stress1, 35%);
+$stress_sec2: darken($stress2, 35%);
+$stress_sec3: darken($stress3, 35%);
+$stress_sec4: darken($stress4, 35%);
+$stress_sec5: darken($stress5, 35%);
 
 /* color when you need to emphasize some section (neighter it's button
  * or heading to something */
@@ -24,8 +33,10 @@ $stress4: $color2;
 $section-emph-border: lighten($color11, 0%);
 $section-emph-background: darken($color11, 55%);
 
+$button-emph-background: darken($stress3, 35%);
+$button-emph-border: $stress3;
+
 $sel-background: darken($color8, 25%);
-// $sel-background: #ff0000;
 
 $button-border-hover: #8d969e;
 
@@ -34,4 +45,503 @@ $debug: #7a5178;
 body
 {
     background: $main-background-color !important;
+    color: $light !important;
 }
+
+// links
+a, a:active, a:focus
+{
+    color: $link-color !important;
+    // i'm not fan of underscoring links on hover
+    &:hover,
+    &:focus
+    {
+        text-decoration: none !important;
+        color: lighten($link-color, 10%) !important;
+    }
+}
+// personal links should be different color
+a.new, #p-personal a.new
+{
+    color: $stress2 !important;
+    &:hover,
+    &:focus
+    {
+        color: lighten($stress2, 10%) !important;
+    }
+}
+
+// delimiters
+hr
+{
+    border-color: $background-light !important;
+}
+
+// they use custom picture for ul style decoration
+// it's better to use default because latest can change its color
+// depending on font color
+ul
+{
+    list-style-image: none !important;
+}
+
+h1, h2
+{
+    border-color: $background-light !important;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    color: $light !important;
+}
+
+// welcom page {{{
+// "Wikipedia" text in the center
+.central-textlogo__image
+{
+    filter: invert(100%) !important;
+}
+// how many articles on each language
+.central-featured-lang small
+{
+    color: $grey !important;
+}
+// left text in footer
+.footer-sidebar-text
+{
+    color: $grey !important;
+}
+// other wikipedia projects (their description)
+.other-project-tagline
+{
+    color: $grey !important;
+}
+// app advertizezment
+.app-badges .footer-sidebar-content
+{
+    background: $main-background-color !important;
+}
+// border across "Read Wikipedia in your language"
+.lang-list-border
+{
+    background: $background-light !important;
+}
+// input
+.pure-form input[type=search]
+{
+    background: $background-dark !important;
+    border-color: $background-light !important;
+    box-shadow: none !important;
+    &:focus
+    {
+        border-color: $stress2 !important;
+        box-shadow: none !important;
+    }
+}
+// select language
+.styled-select
+{
+    &:hover
+    {
+        background: $sel-background !important;
+    }
+    // displayed language
+    .js-langpicker-label
+    {
+        color: $light !important;
+    }
+    // arrow
+    .sprite
+    {
+        filter: invert(100%) !important;
+    }
+}
+// search button
+.pure-button-primary-progressive
+{
+    background: $stress2 !important;
+    border-color: $stress2 !important;
+    &:hover
+    {
+        background: lighten($stress2, 10%) !important;
+        border-color: lighten($stress2, 10%) !important;
+    }
+}
+// "Read Wikipedia in your language" button
+.lang-list-button,
+.lang-list-button:focus,
+// "Read Wikipedia in your language" button wrapped
+.lang-list-active .lang-list-button
+{
+    background: $main-background-color !important;
+    border-color: $background-light !important;
+    outline: 1.6rem solid $main-background-color !important;
+    box-shadow: none !important;
+    color: $link-color !important;
+    // INFO: check this when changing colorscheme
+    // icons
+    .sprite
+    {
+        filter: hue-rotate(40deg) !important;
+    }
+}
+// containing languages
+.lang-list-container
+{
+    background: $main-background-color !important;
+}
+// delimiter betwee languages
+.bookshelf
+{
+    border-color: $background-light !important;
+    box-shadow: none !important;
+    // how many articles
+    .text
+    {
+        background: $main-background-color !important;
+    }
+}
+
+// }}}
+// main page {{{
+// background filler
+.mw-body
+{
+    background: $background-dark !important;
+    border-color: $background-light !important;
+    border-top: 1px solid $background-light !important;
+    // FUNNY: idk why they set -1px, but it used to hide top border
+    margin-top: 0px !important;
+}
+// header {{{
+#mw-head
+{
+    background: $main-background-color !important;
+}
+// top navigation menu
+.vector-menu-tabs
+{
+    border-left: 1px solid $background-light !important;
+    padding-left: 0px !important;
+}
+// remove weird border highlight from items in top navigation menu
+.vector-menu-tabs,
+.vector-menu-tabs a,
+#mw-head .vector-menu-dropdown h3
+{
+    background: $main-background-color !important;
+}
+// two icons at the top
+.oo-ui-icon-bell, .mw-ui-icon-bell:before,
+.oo-ui-icon-tray, .mw-ui-icon-tray:before
+{
+    filter: invert(100%) !important;
+}
+// top navigation
+.vector-menu-tabs
+{
+    li
+    {
+        border-top: 1px solid $background-light !important;
+        // border-left: 1px solid $background-light !important;
+        border-right: 1px solid $background-light !important;
+    }
+    li.selected
+    {
+        background: $background-dark !important;
+        a
+        {
+            background: $background-dark !important
+        }
+    }
+}
+// if you're not logged in
+#pt-anonuserpage
+{
+    color: $grey !important;
+}
+// }}}
+// input {{{
+#searchInput
+{
+    background: $background-dark !important;
+    border-color: $background-light !important;
+    color: $light !important;
+    box-shadow: none !important;
+    &:focus
+    {
+        border-color: $button-border-hover !important;
+    }
+}
+// lens icon on right side of input
+#searchButton
+{
+    filter: invert(100%) !important;
+}
+// }}}
+// left navigation bar {{{
+// wiki logo
+.mw-wiki-logo
+{
+    filter: invert(100%) !important;
+}
+// delimiters between navigation sections
+.vector-menu-portal h3
+{
+    background: none !important;
+    border-bottom: 1px solid $background-light !important;
+    span
+    {
+        color: $grey !important;
+    }
+}
+// "more languages" button
+.mw-ui-button
+{
+    background-color: $main-background-color !important;
+    border-color: $background-light !important;
+    color: $light !important;
+    &:hover
+    {
+        border-color: $button-border-hover !important;
+    }
+}
+// }}}
+// "welcom to wikipedia" section {{{
+.mp-bordered
+{
+    border-color: $background-light !important;
+}
+#mp-topbanner
+{
+    background: $main-background-color !important;
+    color: $light !important;
+}
+// }}}
+// articles on main page {{{
+// main background
+.MainPageBG
+{
+    background: $main-background-color !important;
+    color: $light !important;
+}
+// header of articles on left side
+.mw-parser-output #mp-left .mp-h2
+{
+    background: $stress_sec5 !important;
+    color: $light !important;
+    border-color: $stress5 !important;
+}
+// header of articles on left side
+.mw-parser-output #mp-right .mp-h2
+{
+    background: $stress_sec2 !important;
+    color: $light !important;
+    border-color: $stress2 !important;
+}
+// header or article right in center
+.mw-parser-output #mp-tfp-h2
+{
+    background: $stress_sec1 !important;
+    color: $light !important;
+    border-color: $stress1 !important;
+}
+// special article
+.mw-parser-output .itn-special
+{
+    background: $section-emph-background !important;
+    border-color: $section-emph-border !important;
+}
+// }}}
+// other info about wikipedia at the bottom (projects, languages, etc) {{{
+#mp-other-lower
+{
+    background: $main-background-color !important;
+    color: $light !important;
+    // header of section
+    .mp-h2
+    {
+        background: $section-emph-background !important;
+        border-color: $background-light !important;
+        color: $light !important;
+    }
+    // another weird line\border at the bottom ("Wikipedia languages"
+    // section)
+    .wikipedia-languages-prettybars
+    {
+        background: $background-light !important;
+    }
+}
+// }}}
+// footer {{{
+.mw-footer
+{
+    li
+    {
+        color: $light !important;
+    }
+}
+// }}}
+// }}}
+// log in page {{{
+// remove weird line at the top
+#mw-page-base
+{
+    background: none !important;
+}
+// general color for content
+.mw-body,
+.parsoid-body
+{
+    color: $light !important;
+}
+// input username/password
+.mw-ui-input
+{
+    background: $background-dark !important;
+    border-color: $background-light !important;
+    color: $light !important;
+    box-shadow: none !important;
+    &:focus
+    {
+        border-color: $button-border-hover !important;
+    }
+}
+// "Log in" button
+.mw-ui-button.mw-ui-progressive
+{
+    background: $button-emph-background !important;
+    color: $light !important;
+    border-color: $button-emph-border !important;
+    &:hover
+    {
+        background: lighten($button-emph-background, 10%) !important;
+    }
+}
+// "Join Wikipedia" button
+#mw-createaccount-join
+{
+    background: $main-background-color !important;
+    border-color: $background-light !important;
+    &:hover
+    {
+        border-color: $button-border-hover !important;
+    }
+}
+
+// }}}
+// article {{{
+// table of contents
+.toc,
+.toccolours
+{
+    background: $main-background-color !important;
+    border-color: $background-light !important;
+}
+// numbering in table of contents
+.tocnumber
+{
+    color: $light !important;
+}
+// "hide" inscription
+.toctogglelabel
+{
+    @extend a
+}
+// card on right side {{{
+.infobox
+{
+    color: $light !important;
+    background: $main-background-color !important;
+    border-color: $background-light !important;
+    // delimiters
+    th[colspan='2']
+    {
+        background: lighten($main-background-color, 5%) !important;
+    }
+}
+// }}}
+// }}}
+// tables styling {{{
+// table headers
+.wikitable > tr > th,
+.wikitable > * > tr > th
+{
+    background: $main-background-color !important;
+    color: $light !important;
+}
+// table borders
+.wikitable > tr > th,
+.wikitable > tr > td,
+.wikitable > * > tr > th,
+.wikitable > * > tr > td
+{
+    border-color: $background-light !important;
+}
+// main background
+pre,
+.mw-code
+{
+    background: $background-dark !important;
+    border: none !important;
+    color: $light !important;
+}
+// clear free space with main color
+.wikitable
+{
+    background: $background-dark !important;
+    border-color: $background-light !important;
+}
+// }}}
+// syntax highlighting {{{
+// idk what all abbreviations mean. if you know, let me know about that
+.mw-highlight .nv
+{
+    color: $stress1 !important;
+}
+.mw-highlight .o,
+.mw-highlight .mh,
+.mw-highlight .mi
+{
+    color: $grey !important;
+}
+.mw-highlight .nt
+{
+    color: $stress2 !important;
+}
+.mw-highlight .na
+{
+    color: $stress3 !important;
+}
+.mw-highlight .kt
+{
+    color: $stress4 !important;
+}
+.mw-highlight .nd
+{
+    color: $stress5 !important;
+}
+
+// }}}
+// popups {{{
+.mwe-popups
+{
+    // background color
+    background: $main-background-color !important;
+    // color of text
+    .mwe-popups-container .mwe-popups-extract
+    {
+        color: $light !important;
+    }
+    // fade out
+    .mwe-popups-extract[dir='ltr']:after
+    {
+        background: linear-gradient(to right, rgba($main-background-color, 0), $main-background-color) !important;
+    }
+}
+// settings icon
+.oo-ui-icon-settings, .mw-ui-icon-settings:before
+{
+    filter: invert(100%) !important;
+}
+// }}}
