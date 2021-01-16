@@ -1,0 +1,659 @@
+@import "/home/kip/.cache/wal/colors.scss";
+
+// check "INFO" tags in file when applying to colorcheme
+// It's filter adjasment most of time (like hue rotate)
+// check "FUNNY" tags for things I can't understand (you might let me know how
+// why it's done so)
+
+
+$main-background-color: $color0;
+$background-dark: darken($main-background-color, 5%);
+/* used to separate sections from each other (like borders) */
+$background-light: lighten($main-background-color, 18%);
+
+$light: $color15;
+$grey: lighten($color8, 00%);
+
+// in this file will be use as MAIN COLOR
+$link-color: $color2;
+
+$stress1: $color1; /* current opened tab in repository */
+$stress2: $color9; /* hi last commiter name */
+$stress3: $color12;
+$stress4: $color2;
+$stress5: $color10;
+$stress_sec1: darken($stress1, 35%);
+$stress_sec2: darken($stress2, 35%);
+$stress_sec3: darken($stress3, 35%);
+$stress_sec4: darken($stress4, 35%);
+$stress_sec5: darken($stress5, 35%);
+
+/* color when you need to emphasize some section (neighter it's button
+ * or heading to something */
+// $section-emph-border: lighten($color1, 5%);
+$section-emph-border: lighten($color11, 0%);
+$section-emph-background: darken($color11, 55%);
+
+$button-emph-background: darken($stress3, 35%);
+$button-emph-border: $stress3;
+
+$sel-background: darken($color8, 25%);
+
+$button-border-hover: #8d969e;
+
+$debug: #7a5178;
+
+// change background color from orange to your main color
+// (from orange to purple in my case)
+@mixin hue-rotate
+{
+    filter: hue-rotate(240deg) !important;
+}
+// switch black color to light
+@mixin invert
+{
+    filter: invert(60%) !important;
+}
+@mixin grey-link
+{
+    color: $grey !important;
+    &:hover
+    {
+        color: $light !important;
+    }
+}
+
+// how they implemented something {{{
+// + icons to text are modified via `::before`
+// }}}
+// something you can't change {{{
+//      + color of icons in the bottom you can change only via `filter`
+//      property. Those icons are just pictures
+// }}}
+
+body
+{
+    background: $background-dark !important;
+    color: $light !important;
+}
+// link styling {{{
+a.sc-link-dark,
+a.sc-link-medium
+{
+    color: $light !important;
+    &:hover
+    {
+        color: lighten($light, 10%) !important;
+    }
+}
+a.sc-link-light,
+// link near to "like", "repeat", "share" action buttons
+.sc-buylink,
+// number of follower/number of tracks
+a.sc-ministats
+{
+    @include grey-link;
+}
+// }}}
+// font styling {{{
+.sc-text-light,
+.sc-type-light
+{
+    color: $grey !important;
+}
+// }}}
+// button styling {{{
+.sc-button
+{
+    background: $main-background-color !important;
+    border-color: $background-light !important;
+    color: $light !important;
+    // arrows inside of button (when you need to scrool further)
+    &:after
+    {
+        border-color: $light !important;
+    }
+}
+// "follow" icon
+.sc-button-follow,
+// "like" icon (deactive)
+.sc-button-like,
+// "more" button (on songs)
+.sc-button-more,
+// repeat icon
+.sc-button-repost,
+// share icon
+.sc-button-share,
+// more icon
+.sc-button-more,
+// queue icon
+.sc-button-queue,
+// "add to playlist" icon
+.sc-button-addtoset,
+// "station" icon
+.sc-button-startstation,
+// "report" icon
+.sc-button-report
+{
+    &:before
+    {
+        @include invert;
+    }
+    &.sc-button-selected:before
+    {
+        @include hue-rotate;
+    }
+}
+// like button
+.sc-button-selected.sc-button-medium.sc-button-like:before,
+.sc-button-small.sc-button-selected.sc-button-like.sc-button-lightfg::before,
+.sc-button-small.sc-button-selected.sc-button-like.sc-button-visual::before,
+.sc-button-small.sc-button-selected.sc-button-like::before
+{
+    @include hue-rotate;
+}
+// "like" icon hovering
+.sc-button-active.sc-button-focus,
+.sc-button-active:focus,
+.sc-button-active:hover,
+.sc-button-selected.sc-button-focus,
+.sc-button-selected:focus,
+.sc-button-selected:hover
+{
+    border-color: $link-color !important;
+}
+// hovering buttons
+.tileGallery__sliderButton:active,
+.tileGallery__sliderButton:active:after,
+.tileGallery__sliderButton:focus,
+.tileGallery__sliderButton:focus:after,
+.tileGallery__sliderPeek:hover
+.tileGallery__sliderButton,
+.tileGallery__sliderPeek:hover
+.tileGallery__sliderButton:after
+{
+    border-color: $link-color !important;
+}
+// play, next, etc buttons
+.sc-button-next,
+.sc-button-pause,
+.sc-button-play,
+.sc-button-prev,
+.sc-button.sc-button-blocked,
+.sc-button.sc-button-play.sc-button-disabled:disabled,
+.sc-button.sc-button-play:disabled,
+.sc-button.sc-button-play:disabled:hover
+{
+    background: $link-color !important;
+}
+.sc-button
+{
+    &:hover
+    {
+        border-color: $button-border-hover !important;
+    }
+    &.sc-button-active,
+    &.sc-button-selected
+    {
+        color: $link-color !important;
+        &:hover
+        {
+            border-color: $link-color !important;
+        }
+    }
+}
+// dropdown select from buttons {{{
+.sc-button-dropdown.sc-button-active:not(.sc-button-dropdown-plain),
+.sc-button-dropdown:hover:not(.sc-button-dropdown-plain)
+{
+    background: $link-color !important;
+    color: $light !important;
+}
+.sc-button-dropdown:not(.sc-button-disabled):not(:disabled)
+{
+    color: $link-color !important;
+    border-color: $link-color !important;
+    box-shadow: none !important;
+    &:hover,
+    &:focus
+    {
+        color: $light !important;
+        &:after
+        {
+            border-color: $light !important;
+        }
+    }
+}
+.sc-button-dropdown:after
+{
+    border-color: $link-color !important;
+}
+// }}}
+// }}}
+// border styling {{{
+.sc-border-light,
+.sc-border-light-top,
+.sc-border-light-bottom,
+.sc-border-light-right
+{
+    border-color: $background-light !important;
+}
+// }}}
+// input styling {{{
+.g-dark input[type=password],
+.g-dark input[type=search],
+.g-dark input[type=text],
+.g-dark select,
+.g-dark textarea
+{
+    color: $light !important;
+    background: $background-dark !important;
+    border-color: $background-light !important;
+}
+// }}}
+// dropdown menu {{{
+// dropdown from input
+.dropdownMenu li
+{
+    background: $main-background-color !important;
+}
+// "more actions" wrapped
+.moreActions
+{
+    border-color: $background-light !important;
+    box-shadow: none !important;
+}
+// dropdown containing a's
+.linkMenu
+{
+    background: $background-dark !important;
+    .linkMenu__activeItem,
+    .linkMenu__activeItem>a,
+    .linkMenu__item:hover,
+    .linkMenu__item>a:hover
+    {
+        color: $link-color !important;
+    }
+}
+// "more" dropdown in header {{{
+.headerMenu.m-light
+{
+    border-color: $background-light !important;
+}
+// sections in this dropdown
+.m-light .headerMenu__list
+{
+    border-color: $background-light !important;
+}
+// hovered items
+.m-light .headerMenu__link:focus,
+.m-light .headerMenu__link:hover
+{
+    background: $sel-background !important;
+}
+// text in those
+.m-light .headerMenu__link,
+.m-light .headerMenu__link:focus,
+.m-light .headerMenu__link:hover
+{
+    color: $light !important;
+}
+// }}}
+// }}}
+// set background for all of content {{{
+.l-container.l-content
+{
+    background: $main-background-color !important;
+}
+// }}}
+// delimiters styling {{{
+// delimiter for sections on main page
+.mixedSelectionModule
+{
+    border-color: $background-light !important;
+}
+// delimiter for sections in "library"
+.collection.m-overview .collection__section:not(:last-child)
+{
+    border-color: $background-light !important;
+}
+// fullscreen music delimiter from "Related tracks"
+.l-listen-wrapper .l-about-rows
+{
+    border-color: $background-light !important;
+}
+// }}}
+// header {{{
+.header
+{
+    background: $background-dark !important;
+    // logo
+    .header__logo
+    {
+        background: $link-color !important;
+    }
+    // selected entry
+    // in left navigation panes
+    &>li>a:focus,
+    .header__navMenu>li>a.selected.header__navMenuItem,
+    // user dropdown wrapped
+    .header__userNavButton.selected,
+    .header__userNavItem.selected
+    {
+        background: $main-background-color !important;
+    }
+    // all entries
+    .header__navMenu>li>a.header__navMenuItem
+    {
+        border-color: $background-light !important;
+    }
+}
+// }}}
+// icons styling  {{{
+// icons when expanding user in top navigation bar
+.profileMenu .headerMenu__link:after
+{
+    @include invert;
+}
+// }}}
+// bottom player {{{
+.playControls__bg, .playControls__inner
+{
+    background: $main-background-color !important;
+    border-color: $background-light !important;
+
+    // "previoius", "start/stop", "next"
+    .playControls__control,
+    // volume button
+    .volume__button
+    {
+        filter: invert(100%) !important;
+    }
+    // wrapped volume
+    .volume.expanded .volume__sliderWrapper
+    {
+        background: $background-dark !important;
+        border-color: $background-dark !important;
+        &:after
+        {
+            border-color: $background-dark !important;
+            box-shadow: none !important;
+        }
+        &:before
+        {
+            border-color: $background-dark !important;
+            box-shadow: none !important;
+        }
+    }
+    // line from bottom to current circle volume
+    .volume__sliderProgress
+    {
+        background: $link-color !important;
+    }
+    // circle showing current volume
+    .volume__sliderHandle
+    {
+        background: $link-color !important;
+    }
+    // volume
+    .volume__sliderWrapper
+    {
+        background: none !important;
+    }
+    // passed time
+    .playbackTimeline__timePassed
+    {
+        color: $link-color !important;
+    }
+    // overall time
+    .playbackTimeline__duration
+    {
+        color: $light !important;
+    }
+    // progress bar color (passed time on timeline)
+    .playbackTimeline__progressBar
+    {
+        background: $link-color !important;
+    }
+    // orange circle on current location at song
+    .playbackTimeline__progressHandle
+    {
+        border-color: $link-color !important;
+        background: $link-color !important;
+    }
+    // follow/unfollow, like/unlike, open song queue {{{
+    // activated queue button
+    a.playbackSoundBadge__showQueue
+    {
+        @include invert;
+    }
+    .playbackSoundBadge.m-queueVisible a.playbackSoundBadge__showQueue
+    {
+        @include hue-rotate;
+    }
+    .sc-button-responsive
+    {
+        // filter: invert(60%) !important;
+        &.sc-button-responsive
+        {
+            &:before
+            {
+                @include invert;
+            }
+            &.sc-button-selected:before
+            {
+                @include hue-rotate;
+            }
+        }
+    }
+    // }}}
+}
+// }}}
+// icons styling {{{
+// refresh list icon (remove, because it's not possible to customize)
+.whoToFollowModule .sidebarHeader__more
+{
+    background: none !important;
+}
+// }}}
+// when hovering over song, show "like", and "more" buttons
+.soundBadge__additional
+{
+    background: linear-gradient(to right, rgba($main-background-color, 0), $main-background-color 20%) !important;
+}
+// playlist styling {{{
+// container for playlist
+.compactTrackList.sc-border-light.sc-font-body
+{
+    border-bottom: none !important;
+}
+// hovering over element
+.compactTrackListItem.clickToPlay.active,
+.compactTrackListItem.clickToPlay:focus,
+.compactTrackListItem.clickToPlay:hover
+{
+    background: $sel-background !important;
+}
+// if song name is too long
+.compactTrackListItem.clickToPlay.active
+.compactTrackListItem__additional,
+.compactTrackListItem.clickToPlay:focus
+.compactTrackListItem__additional,
+.compactTrackListItem.clickToPlay:hover
+.compactTrackListItem__additional
+{
+    background: linear-gradient(to right, rgba($sel-background, 0), $sel-background 20%) !important;
+}
+// song number and name
+.compactTrackListItem__number,
+.compactTrackListItem__trackTitle
+{
+    color: $light !important;
+}
+// "like", "repeat", "share" playlist actions container
+.sound__soundActions
+{
+    background: $main-background-color !important;
+}
+// }}}
+// fulscreen song styling {{{
+// canvas with song bars
+.g-box-full.sceneLayer
+{
+    @include hue-rotate;
+}
+// line before commenter name
+.commentPopover__username:before
+{
+    background: linear-gradient(rgba($link-color, .95),rgba($link-color, .1)) !important;
+}
+// commenter user name color
+.commentPopover__username, a.commentPopover__username:hover,
+a.commentPopover__username:visited
+{
+    color: $link-color !important;
+}
+// comment body
+.commentPopover.darkText .commentPopover__body
+{
+    color: $light !important;
+}
+
+// }}}
+// "write a comment"
+.commentForm__wrapper
+{
+    background: $main-background-color !important;
+    border-color: $background-light !important;
+    .commentForm__input
+    {
+        background: $main-background-color !important;
+        border: none !important;
+        color: $light !important;
+    }
+}
+
+// "view all"
+.readMoreTile__countWrapper
+{
+    background: $main-background-color !important;
+}
+
+// navigation bar in library tab {{{
+// navigation bar container
+.g-tabs
+{
+    border-color: $background-light !important;
+}
+.g-tabs-link
+{
+    color: $light !important;
+    &:hover,
+    &:focus
+    {
+        color: $light !important;
+        border-color: $light !important;
+    }
+    // active tab
+    &.active,
+    &.active:hover,
+    &.active:focus
+    {
+        border-color: $link-color !important;
+        color: $link-color !important;
+    }
+}
+// }}}
+// "messages" tab in header {{{
+.dropdownContent__container
+{
+    background: $main-background-color !important;
+    border-color: $background-light !important;
+    // first delimiter
+    .dropdownContent__header
+    {
+        border-color: $background-light !important;
+    }
+    // second delimiter
+    .dropdownContent__main
+    {
+        border-color: $background-light !important;
+    }
+}
+// }}}
+// rm unnecessary borders {{{
+// strange border around "write a comment" on fullscreen music
+.listenEngagement
+{
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-color: $background-light !important;
+    box-shadow: none !important;
+}
+// }}}
+// INFO: check this when changing colorscheme
+// soundcloud icon at the bottom
+.paging-eof:before
+{
+    filter: invert(85%) !important;
+}
+
+// preview profile icon
+.image__whiteOutline .image__full
+{
+    border-color: $main-background-color !important;
+}
+.soundBadge.playlist .soundBadge__artwork
+{
+    background-image: none !important;
+}
+// popups {{{
+
+// popup (when hovering user name)
+.dialog
+{
+    background: $main-background-color !important;
+    border-color: $background-light !important;
+}
+// popup (when adding to queue)
+.gritter-item-wrapper
+{
+    background: $main-background-color !important;
+    border-color: $background-light !important;
+    color: $light !important;
+    box-shadow: none !important;
+}
+// share song
+.modal.modalWhiteout
+{
+    background: rgba($main-background-color, .9) !important;
+}
+// header
+.tabs__headingContainer,
+.tabs__tabs,
+// section
+.g-modal-section
+{
+    background: $main-background-color !important;
+}
+// }}}
+// "private" sign
+.sc-label.sc-label-private
+{
+    background: $link-color !important;
+}
+// toggle button
+.sc-toggle:before
+{
+    background: $link-color !important;
+}
+// fullscreen music, same song entries
+.systemPlaylistTrackList__item .hover
+{
+    background: $sel-background !important;
+    .trackItem__additional
+    {
+        background: linear-gradient(to right, rgba($sel-background, 0), $sel-background 20%) !important;
+    }
+}
