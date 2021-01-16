@@ -35,9 +35,23 @@ $debug: #7a5178;
     // just becouse I hate how some companies implement this, I turn off any
     // text decoration from links (your cursor might still show
     // available clicks)
-a, a:hover, a:visited, a:link, a[href]
+a, a:visited, a:link, a[href]
 {
     text-decoration: none !important;
+    color: $link-color !important;
+    &:hover
+    {
+        color: lighten($link-color, 10%) !important;
+    }
+    h3
+    {
+        text-decoration: none !important;
+        color: $link-color !important;
+        &:hover
+        {
+            color: lighten($link-color, 10%) !important;
+        }
+    }
 }
 // }}}
 // welcom page {{{
@@ -825,44 +839,41 @@ div#top_nav
     }
     // }}}
     // pages navigation (next, previous, nth) {{{
-    #foot
+    // left side of Goooo...oogle
+    td.d6cvqb
     {
-        // left side of Goooo...oogle
-        td.d6cvqb
-        {
-            // text ("Previous","Next")
-            span {
-                color: $link-color !important;
-            }
-            // image
-            span.SJajHc
-            {
-                // I don't won't to produce large number of additional
-                // png's so I just apply filter so it looks same as
-                // colorcheme
-                // INFO: check this when changing colorscheme
-                filter: hue-rotate(40deg) !important;
-            }
-        }
-        // page you are on
-        td.YyVfkd
-        {
-            // INFO: check this when changing colorscheme
-            // filter is for big "O" symbol (to change it's color)
-            filter: hue-rotate(200deg) !important;
-            // this one is for page number underneath
-            color: $light !important;
-        }
-        // page numbers you can click
-        td a.fl
-        {
+        // text ("Previous","Next")
+        span {
             color: $link-color !important;
+        }
+        // image
+        span.SJajHc
+        {
+            // I don't won't to produce large number of additional
+            // png's so I just apply filter so it looks same as
+            // colorcheme
             // INFO: check this when changing colorscheme
-            // big "O" image
-            span
-            {
-                filter: hue-rotate(240deg) !important;
-            }
+            filter: hue-rotate(40deg) !important;
+        }
+    }
+    // page you are on
+    td.YyVfkd
+    {
+        // INFO: check this when changing colorscheme
+        // filter is for big "O" symbol (to change it's color)
+        filter: hue-rotate(200deg) !important;
+        // this one is for page number underneath
+        color: $light !important;
+    }
+    // page numbers you can click
+    td a.fl
+    {
+        color: $link-color !important;
+        // INFO: check this when changing colorscheme
+        // big "O" image
+        span
+        {
+            filter: hue-rotate(240deg) !important;
         }
     }
     // }}}
