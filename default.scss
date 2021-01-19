@@ -1,0 +1,89 @@
+@import "/home/kip/.cache/wal/colors.scss";
+
+// check "INFO" tags in file when applying to colorcheme
+// It's filter adjasment most of time (like hue rotate)
+// check "FUNNY" tags for things I can't understand (you might let me know how
+// why it's done so)
+
+$main-background-color: $color0;
+$background-dark: darken($main-background-color, 5%);
+/* used to separate sections from each other (like borders) */
+$background-light: lighten($main-background-color, 18%);
+
+$light: $color15;
+$grey: lighten($color8, 00%);
+
+// in this file will be use as MAIN COLOR
+$link-color: $color2;
+
+$stress1: $color1; /* current opened tab in repository */
+$stress2: $color9; /* hi last commiter name */
+$stress3: $color12;
+$stress4: $color2;
+$stress5: $color10;
+$stress_sec1: darken($stress1, 35%);
+$stress_sec2: darken($stress2, 35%);
+$stress_sec3: darken($stress3, 35%);
+$stress_sec4: darken($stress4, 35%);
+$stress_sec5: darken($stress5, 35%);
+
+/* color when you need to emphasize some section (neighter it's button
+ * or heading to something */
+// $section-emph-border: lighten($color1, 5%);
+$section-emph-border: lighten($color11, 0%);
+$section-emph-background: darken($color11, 55%);
+
+$button-emph-background: darken($stress3, 35%);
+$button-emph-border: $stress3;
+
+$sel-background: darken($color8, 25%);
+
+$button-border-hover: #8d969e;
+
+$debug: #7a5178;
+
+body
+{
+    background: $main-background-color !important;
+    color: $light !important;
+    // usually header
+    h1,h2,h3,h4,h5,h6
+    {
+        color: $light !important;
+    }
+    // usually code
+    pre
+    {
+        background: $background-dark !important;
+    }
+    // emphasized text
+    strong, em
+    {
+        color: lighten($light, 5%) !important;
+    }
+}
+// usually bottom of page
+footer
+{
+    p
+    {
+        color: $grey !important;
+    }
+}
+a
+{
+    text-decoration: none !important;
+    &:link
+    {
+        color: $stress2 !important;
+    }
+    &:hover,
+    &:active
+    {
+        color: lighten($stress2,10%) !important;
+    }
+    &:visited
+    {
+        color: $link-color !important;
+    }
+}

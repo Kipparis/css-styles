@@ -399,6 +399,17 @@ header.top-bar
             }
         }
     }
+    .s-pagination--item
+    {
+        border-color: $background-light !important;
+        &:hover,
+        &.is-selected
+        {
+            color: $light !important;
+            background: $stress2 !important;
+            border-color: $stress2 !important;
+        }
+    }
 }
 // }}}
 // right side bar {{{
@@ -585,5 +596,20 @@ header.top-bar
             color: darken($grey, 5%) !important;
         }
     }
+}
+// }}}
+// inline code {{{
+// code in answer|question
+.s-prose *:not(.s-code-block)>code,
+// code in comments
+.comment-text code
+{
+    background: $background-dark !important;
+    color: $light !important;
+}
+// surrounding around color
+.s-prose pre:not(.s-code-block)
+{
+    background: $background-dark !important;
 }
 // }}}
