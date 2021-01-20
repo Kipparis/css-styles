@@ -52,9 +52,11 @@ body
         color: $light !important;
     }
     // usually code
+    code,
     pre
     {
         background: $background-dark !important;
+        border-color: $background-light !important;
     }
     // emphasized text
     strong, em
