@@ -1,0 +1,3 @@
+[submodule "pictures"]
+	path = pictures
+	url = https://github.com/Kipparis/css-styles-pictures.git
