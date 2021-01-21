@@ -86,6 +86,16 @@ a.sc-link-medium
         color: lighten($light, 10%) !important;
     }
 }
+// simple links to external/internal sites
+a,
+a:visited
+{
+    color: $link-color !important;
+    &:hover
+    {
+        color: lighten($link-color, 10%) !important;
+    }
+}
 a.sc-link-light,
 // link near to "like", "repeat", "share" action buttons
 .sc-buylink,
@@ -244,7 +254,8 @@ a.sc-ministats
 .g-dark input[type=search],
 .g-dark input[type=text],
 .g-dark select,
-.g-dark textarea
+.g-dark textarea,
+input, select, textarea
 {
     color: $light !important;
     background: $background-dark !important;
@@ -447,6 +458,11 @@ a.sc-ministats
         }
     }
     // }}}
+    // song name
+    .playbackSoundBadge__titleLink
+    {
+        @include grey-link;
+    }
 }
 // }}}
 // icons styling {{{
@@ -457,7 +473,9 @@ a.sc-ministats
 }
 // }}}
 // when hovering over song, show "like", and "more" buttons
-.soundBadge__additional
+.soundBadge__additional,
+// when creating playlist if song too long
+.createPlaylistSuggestion__addContainer
 {
     background: linear-gradient(to right, rgba($main-background-color, 0), $main-background-color 20%) !important;
 }
@@ -657,3 +675,74 @@ a.commentPopover__username:visited
         background: linear-gradient(to right, rgba($sel-background, 0), $sel-background 20%) !important;
     }
 }
+// arrow to popup dialog
+.dialog__arrow
+{
+    background: $main-background-color !important;
+    border-color: $background-light !important;
+}
+// small thing that notice you that you have something new to read
+.newItemBadge.newItems__some
+{
+    border-color: $background-dark !important;
+    background-color: $link-color !important;
+}
+// queue {{{
+.queue
+{
+    background: $main-background-color !important;
+    // item wrapper (idk what it is)
+    .queue__itemWrapper
+    {
+        background: $main-background-color !important;
+    }
+    // control panel
+    .queue__panel
+    {
+        border-color: $background-light !important;
+    }
+    // "autoplay station"
+    .queueFallback__stationMode
+    {
+        border-top: 1px solid $background-light !important;
+        border-bottom: 1px solid $background-light !important;
+        border-color: $background-light !important;
+    }
+    // active song
+    .m-active
+    {
+        background: $sel-background !important;
+    }
+    // hovering over other songs
+    .queueItemView.m-active,
+    .queueItemView:hover
+    {
+        background: $sel-background !important;
+    }
+    // FUNNY
+    // weird border which is set by "background-image" property
+    .queue__itemsHeight
+    {
+        background: none !important;
+    }
+}
+// }}}
+// tags to song ("Hip Hop")
+.sc-tag,
+.sc-tag:visited
+{
+    background: $main-background-color !important;
+    &:hover
+    {
+        color: $light !important;
+        background: $sel-background !important;
+    }
+    color: $light !important;
+}
+
+.playButton.m-stretch.sc-button-buffering:after
+{
+    // background-image: none !important;
+    @include hue-rotate;
+}
+
