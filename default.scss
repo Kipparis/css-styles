@@ -57,6 +57,7 @@ body
     {
         background: $background-dark !important;
         border-color: $background-light !important;
+        color: $light !important;
     }
     // emphasized text
     strong, em
@@ -74,6 +75,7 @@ footer
 }
 a
 {
+    border-color: $background-light !important;
     text-decoration: none !important;
     &:link
     {
@@ -82,6 +84,7 @@ a
     &:hover,
     &:active
     {
+        border-color: $button-border-hover !important;
         color: lighten($stress2,10%) !important;
     }
     &:visited
