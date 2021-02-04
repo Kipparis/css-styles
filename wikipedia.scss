@@ -49,6 +49,16 @@ body
     color: $light !important;
 }
 
+// code formatting
+pre, code
+{
+    span {
+        font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace !important;
+        // have to make it normal (otherwise, font width is computed wrongly)
+        font-weight: normal !important;
+    }
+}
+
 // links
 a, a:active, a:focus
 {
