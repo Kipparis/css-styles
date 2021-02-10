@@ -806,3 +806,21 @@ main section
 {
     background: $main-background-color !important;
 }
+// code {{{
+.markdown-body .highlight pre,
+.markdown-body pre
+{
+    background-color: $background-dark !important;
+}
+// string highlithing
+.pl-pds,
+.pl-s,
+.pl-s .pl-pse .pl-s1,
+.pl-sr,
+.pl-sr .pl-cce,
+.pl-sr .pl-sra,
+.pl-sr .pl-sre
+{
+    color: $stress2 !important;
+}
+// }}}
