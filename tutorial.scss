@@ -1,0 +1,69 @@
+/* TODO:
+ *  + for each wrapped section display line on right side (to show nesting)
+ *  + add margins and more dynamic font maybe or highlighting
+ *  + list numbering in different color
+ * */
+
+@import "colors.scss";
+@import "default.scss";
+@import "html_default.scss";
+
+$line-height: 1.8em;
+
+$font-size: 1.4em;
+// }}}
+
+// table of contents {{{
+ol {
+    counter-reset: item;
+}
+
+ol > li {
+    counter-increment: item;
+}
+
+ol ol > li {
+    display: block;
+}
+
+ol ol > li:before {
+    content: counters(item, ".") ". ";
+    margin-left: -20px;
+}
+// }}}
+// code blocks {{{
+// inline
+code
+{
+    border-radius: 4px;
+    padding: 4px;
+    line-height: $line-height;
+}
+// block
+pre
+{
+    font-size: $font-size;
+}
+// }}}
+// collapsible content {{{
+input[type='checkbox'] {
+    display: none;
+}
+.lbl-toggle {
+    cursor: pointer;
+}
+.collapsible-content {
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height .25s ease-in-out;
+}
+.toggle:checked + .lbl-toggle + .collapsible-content {
+    max-height: 100%;
+}
+// }}}
+
+p, li
+{
+    font-size: $font-size;
+}
+
