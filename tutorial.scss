@@ -1,17 +1,151 @@
 /* TODO:
- *  + for each wrapped section display line on right side (to show nesting)
- *  + add margins and more dynamic font maybe or highlighting
+ *  + for each wrapped section display line on left side (to show nesting)
+ *  + add margins (70 characters on line)
+ *    and more dynamic font maybe or highlighting
  *  + list numbering in different color
+ *  + increase header font size
  * */
 
 @import "colors.scss";
-@import "default.scss";
 @import "html_default.scss";
 
-$line-height: 1.8em;
+$line-height: 35px;
 
-$font-size: 1.4em;
+$font-size: 15px;
 // }}}
+
+// variable setup {{{
+// check "INFO" tags in file when applying to colorcheme
+// It's filter adjasment most of time (like hue rotate)
+// check "FUNNY" tags for things I can't understand (you might let me know how
+// why it's done so)
+
+$main-background-color: $color0;
+$background-dark: darken($main-background-color, 5%);
+/* used to separate sections from each other (like borders) */
+$background-light: lighten($main-background-color, 18%);
+
+$light: $color15;
+$grey: lighten($color8, 00%);
+
+// in this file will be use as MAIN COLOR
+$link-color: $color2;
+
+$stress1: $color1; /* current opened tab in repository */
+$stress2: $color9; /* hi last commiter name */
+$stress3: $color12;
+$stress4: $color2;
+$stress5: $color10;
+$stress_sec1: darken($stress1, 35%);
+$stress_sec2: darken($stress2, 35%);
+$stress_sec3: darken($stress3, 35%);
+$stress_sec4: darken($stress4, 35%);
+$stress_sec5: darken($stress5, 35%);
+
+/* color when you need to emphasize some section (neighter it's button
+ * or heading to something */
+// $section-emph-border: lighten($color1, 5%);
+$section-emph-border: lighten($color11, 0%);
+$section-emph-background: darken($color11, 55%);
+
+$button-emph-background: darken($stress3, 35%);
+$button-emph-border: $stress3;
+
+$sel-background: darken($color8, 25%);
+
+$button-border-hover: #8d969e;
+
+$debug: #7a5178;
+// }}}
+// default stylesheet {{{
+body
+{
+    background: $main-background-color;
+    color: $light;
+    // usually header
+    h1,h2,h3,h4,h5,h6
+    {
+        color: $light ;
+    }
+    // usually code
+    code,
+    pre
+    {
+        background: $background-dark ;
+        border-color: $background-light ;
+        color: $light ;
+    }
+    // emphasized text
+    strong, em
+    {
+        color: lighten($light, 5%) ;
+    }
+}
+// usually bottom of page
+footer
+{
+    p
+    {
+        color: $grey ;
+    }
+}
+a
+{
+    border-color: $background-light ;
+    text-decoration: none ;
+    &:link
+    {
+        color: $stress2 ;
+    }
+    &:hover,
+    &:active
+    {
+        border-color: $button-border-hover ;
+        color: lighten($stress2,10%) ;
+    }
+    &:visited
+    {
+        color: $link-color ;
+    }
+}
+// }}}
+
+// combine vw measuring unit with min-width meta variable
+body {
+    margin-left: 3em;
+    // only inside of actual content (without table of contents)
+    & > div {
+        // increase space between lists
+        li {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        // show unfolded sections with different color
+        input[type=checkbox]:checked + label {
+            h1, h2, h3, h4 {
+                color: $stress1;
+            }
+        }
+        // show folded sections with pure white color
+        input[type=checkbox] + label {
+            h1, h2, h3, h4 {
+                color: #fff;
+            }
+        }
+    }
+
+}
+// if screen is too big content will be limited in width
+@media (min-width: 800px) {
+    body {
+        width: 800px;
+    }
+}
+// increaese font size for better readability
+p, li
+{
+    font-size: $font-size;
+}
 
 // table of contents {{{
 ol {
@@ -61,9 +195,4 @@ input[type='checkbox'] {
     max-height: 100%;
 }
 // }}}
-
-p, li
-{
-    font-size: $font-size;
-}
 
