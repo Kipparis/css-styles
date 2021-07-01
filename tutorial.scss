@@ -9,7 +9,7 @@
 @import "colors.scss";
 @import "html_default.scss";
 
-$line-height: 35px;
+$line-height: 25px;
 
 $font-size: 15px;
 // }}}
@@ -170,12 +170,13 @@ ol ol > li:before {
 code
 {
     border-radius: 4px;
-    padding: 4px;
+    padding: 2px 4px;
     line-height: $line-height;
 }
 // block
 pre
 {
+    padding: 2px 4px;
     font-size: $font-size;
 }
 // }}}
