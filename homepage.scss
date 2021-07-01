@@ -1,0 +1,91 @@
+@import "colors.scss";
+
+$background-color: $color0; // main background color
+$color:            $color7; // main font color
+$link-color:       $color9; // main link color
+
+body {
+    background: $background-color;
+    color:      $color;
+    font-size:  15pt;
+}
+
+// clear links formating
+a:visited, a:hover, a:active, a:link {
+    text-decoration: none;
+    color: $color7;
+}
+
+.page {
+    font-size: 15pt;
+
+    // main table containing main links (like social media or wikies)
+    .main {
+        height: 100%;   // will take height equal to window height
+        // margin: 40% 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .row {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            // entries in main table
+            .elem {
+                font-size:   15pt;
+                margin:      0.5em 2em;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .section
+    {
+        margin-bottom: 25%;
+        margin-top:    25%;
+
+        h1,h2,h3,h4,h5
+        {
+            border-bottom: 2px solid;
+            border-color: white;
+            padding-left: 1em;
+        }
+        .cards
+        {
+            // padding-top: 25%;
+            // padding-bottom: 25%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;    // center of screen
+            flex-wrap: wrap;
+            // align-items: center;
+            .column {
+                display: flex;
+                flex-direction: column;
+                align-items: center;    // center items under head
+                margin: 0em 1em;
+
+                .elem {
+                    &:first-child {
+                        margin: 1em;
+                    }
+                    margin: 0.1em 0em;
+                }
+
+                .delim {
+                    width: 100%;
+                    font-size: 0.5em;
+                    border-bottom: 1px solid $color
+                }
+            }
+        }
+    }
+}
+
+// highlight every first entry on row/column of table
+a.elem:first-child {
+    font-size: 25pt;
+    font-weight: bolder;
+    color: $link-color;
+}
