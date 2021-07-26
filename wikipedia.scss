@@ -482,6 +482,14 @@ h1, h2, h3, h4, h5, h6
     color: $light !important;
 }
 // table borders
+@media screen
+{
+    .wikitable
+    {
+        color: $light !important;
+    }
+}
+.wikitable,
 .wikitable > tr > th,
 .wikitable > tr > td,
 .wikitable > * > tr > th,
@@ -539,6 +547,10 @@ pre,
 {
     // background color
     background: $main-background-color !important;
+    .mwe-popups-container
+    {
+        background: $main-background-color !important;
+    }
     // color of text
     .mwe-popups-container .mwe-popups-extract
     {
