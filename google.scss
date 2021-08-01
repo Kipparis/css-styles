@@ -32,6 +32,16 @@ $button-border-hover: #8d969e;
 
 $debug: #7a5178;
 
+body
+{
+    color: $light !important;
+}
+// links to cite
+cite, cite a:link, cite a:visited
+{
+    color: $light !important;
+}
+
 // general for all cites {{{
     // just becouse I hate how some companies implement this, I turn off any
     // text decoration from links (your cursor might still show
@@ -332,6 +342,23 @@ div.sfbg
     }
 }
 // }}}
+// right side {{{
+// header from wikipedia
+.kno-ecr-pt
+{
+    color: $light !important;
+}
+// entries under header
+.mDj5wd
+{
+    color: $light !important;
+}
+// configure entries delimiter
+.wwfboe
+{
+    border-color: $background-light !important;
+}
+// }}}
 // top navigation (below input field) {{{
 div#top_nav
 {
@@ -403,6 +430,21 @@ div#top_nav
     .akqY6
     {
         background: $grey !important;
+    }
+    // "people also ask"
+    .O3JH7.qLBFXd
+    {
+        color: $light !important;
+    }
+    // delimiter for "people also ask"
+    .oySJpc
+    {
+        color: $background-light !important;
+    }
+    // expand arrow icon
+    .YsGUOb
+    {
+        filter: invert(85.09%) !important;
     }
     // "see results about"
     .kp-blk
