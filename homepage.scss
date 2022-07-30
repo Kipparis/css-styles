@@ -1,8 +1,8 @@
-@import "colors.scss";
+@import "/home/kip/.cache/wal/colors.scss";
 
 $background-color: $color0; // main background color
 $color:            $color7; // main font color
-$link-color:       $color9; // main link color
+$link-color:       $color5; // main link color
 
 body {
     background: $background-color;
@@ -63,7 +63,7 @@ a:visited, a:hover, a:active, a:link {
             .column {
                 display: flex;
                 flex-direction: column;
-                align-items: center;    // center items under head
+                // align-items: center;    // center items under head
                 margin: 0em 1em;
 
                 .elem {
@@ -76,7 +76,8 @@ a:visited, a:hover, a:active, a:link {
                 .delim {
                     width: 100%;
                     font-size: 0.5em;
-                    border-bottom: 1px solid $color
+                    border-bottom: 1px solid $color;
+                    text-align: right;
                 }
             }
         }
