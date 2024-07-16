@@ -67,10 +67,11 @@ a:visited, a:hover, a:active, a:link {
                 margin: 0em 1em;
 
                 .elem {
+                    margin: 0.1em 0em;
+
                     &:first-child {
                         margin: 1em;
                     }
-                    margin: 0.1em 0em;
                 }
 
                 .delim {
